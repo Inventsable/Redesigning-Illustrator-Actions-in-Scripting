@@ -99,7 +99,7 @@ mySet.load(); // it should be this easy
 var myExportAction = mySet.actions.getByName("export300dpiJPEG");
 ```
 
-```json
+```js
 myExportAction: {
   "events": [[Event ExportAs], [Event SaveAs]],
   "name": "export300dpiJPEG",
@@ -136,7 +136,7 @@ myAction.events.add(
 );
 ```
 
-```json
+```js
 myAction: {
   "events": [[Event selectAll], [Event paint-it-red]],
   "name": "recolorit",
@@ -220,13 +220,19 @@ But maybe it's worth trying to design code instead of always jumping in and impr
 
 ## **ActionSet**
 
-| Property | Type      |                                                                                                                                         Description |
+### Properties
+
+| Key      | Type      |                                                                                                                                         Description |
 | :------- | :-------- | --------------------------------------------------------------------------------------------------------------------------------------------------: |
 | actions  | `Actions` | Array-like collection of `Action` objects. Entries can be accessed as an Array while simultaneously having functions like `ActionSet.actions.add()` |
 | loaded   | `Boolean` |                                                                                                      Whether or not the current set has been loaded |
 | name     | `String`  |                                                                                                                         The name of the current set |
 | rawtext  | `String`  |                                                                      Text last used to generate this object on creation or `ActionSet.toAIA()` call |
 | typename | `String`  |                                                                                                                               Returns `"ActionSet"` |
+
+<br/>
+
+### Methods
 
 <dl>
 <dt><a href="#load">ActionSet.load()</a> ⇒ <code>Boolean</code></dt>
@@ -249,9 +255,13 @@ But maybe it's worth trying to design code instead of always jumping in and impr
 </dd>
 </dl>
 
+<br />
+
 ## **Action**
 
-| Property | Type                  |                                                                                                                                                  Description |
+### Properties
+
+| Key      | Type                  |                                                                                                                                                  Description |
 | :------- | :-------------------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | events   | `Events`              |                 Array-like collection of `Event` objects. Entries can be accessed by index while simultaneously including methods like `Action.events.add()` |
 | isOpen   | `Boolean`             |                                                                                                                        Whether unfolded in the Actions panel |
@@ -260,7 +270,9 @@ But maybe it's worth trying to design code instead of always jumping in and impr
 | typename | `String`              |                                                                                                                                           Returns `"Action"` |
 | version  | `Number`              |                                                                                                                                              Defaults to `3` |
 
-### **Methods**
+<br />
+
+### Methods
 
 <dl>
 <dt><a href="#a">Action.load()</a> ⇒ <code>Boolean</code></dt>
