@@ -126,7 +126,7 @@ var mySet = new ActionSet("~/desktop/sampleActions.aia");
 // But can be re-saved to any new location:
 mySet.saveAs(new File("~/desktop/newFileLocation.aia"));
 
-// This is functionally the same as:
+// This is equivalent to:
 var text = mySet.toAIA(); // or if unmodified since creation, mySet.raw property
 var target = new File("~/desktop/newFileLocation.aia"); // create the file ref
 target.open("w"); // open it for writing
