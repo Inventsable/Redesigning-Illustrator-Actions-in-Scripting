@@ -43,12 +43,17 @@ function chunkSubstr(str, size) {
   return chunks;
 }
 
+// If we write one good enough function to print lines in AIA format,
+// we can recurse inside any enumerables like actions/events/parameters:
 function unfoldPerDepth(obj, str = "", depth = 0, parent = null) {
-  let padding = "";
-  for (let i = 1; i <= depth; i++) padding += "\t";
+  // The recursion depth is the same as our leading \t characters:
+  let padding = "".padStart(depth, "\t");
+
+  // Iterate over the properties of this object as if it were an Array:
   Object.keys(obj).forEach((key, mainIndex) => {
-    // Use our super slick diagnostic function
+    // We need to handle any edge cases, so we create a diagnostic for them:
     let conditions = hasConditionalFormatting(key, obj[key], depth, obj);
+    //
     // If nothing came back we know the formatting is very simple:
     if (conditions.isNone) str += `${padding}/${key} ${obj[key]}`;
     else if (conditions.isReal) str += `${padding}/${key} ${obj[key]}.0`;

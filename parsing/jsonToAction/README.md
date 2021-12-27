@@ -1,12 +1,132 @@
-# actionToJSON
+# Converting JSON to AIA
+
+### My first thought is passing each key/value pair into some kind of diagnostic function:
+
+```js
+// This is either extremely clever or needlessly obtuse
+function hasConditionalFormatting(key, value, depth, parent) {
+  // The idea is to re-evaluate several edge cases against the current key/value:
+  let conditions = {
+    // If an enumerable, we have to recurse into it's children
+    isEnum: [() => ["actions", "events", "parameters"].includes(key)],
+    // If a hex, we'll have to encode it then format it very strictly:
+    isHex: [
+      () => ["name", "localizedName"].includes(key), // Certain keys might always qualify as hex
+      () =>
+        key == "value" &&
+        parent["type"] &&
+        ["(ustring)"].includes(parent["type"]), // But some might depend on a sibling property
+    ],
+    // Decimal encoding has predictable keys:
+    isDec: [() => depth > 2 && ["key"].includes(key)],
+    // If a particular "real" int type, it should have a floating point in the AIA value:
+    isReal: [
+      () =>
+        key == "value" &&
+        parent["type"] &&
+        /real/i.test(parent["type"]) &&
+        !/\./.test(value),
+    ],
+  };
+  // So we remap an array of keys from the above object:
+  let diagnostic = Object.keys(conditions)
+    .map((k) => {
+      // Into a unique collection (cannot contain duplicate values)
+      return [
+        ...new Set(
+          conditions[k]
+            // Of calling each function and evaluating the condition
+            .map((func) => {
+              // In which case we assign the value to the key (condition type)
+              return func(...arguments) ? k : false;
+            })
+            // Then remove any empty values when edge cases weren't met
+            .filter((i) => i && i.length)
+        ),
+      ];
+    })
+    .flat()
+    .filter((i) => i); // Then collapse an Array of Arrays into a single Array, removing empties
+
+  // With specific enough conditions, only one of the below should be returning true:
+  return {
+    isEnum: diagnostic.includes("isEnum"),
+    isHex: diagnostic.includes("isHex"),
+    isDec: diagnostic.includes("isDec"),
+    isReal: diagnostic.includes("isReal"),
+    isNone: !diagnostic.length,
+  };
+}
+```
+
+<br />
+
+### If the above catches any time special formatting is needed, we can recurse through each object and print as we go:
+
+```js
+// If we write one good enough function to print lines in AIA format,
+// we can recurse inside any enumerables like actions/events/parameters:
+function unfoldPerDepth(obj, str = "", depth = 0, parent = null) {
+  // The recursion depth is the same as our leading \t characters:
+  let padding = "".padStart(depth, "\t");
+
+  // Iterate over the properties of this object as if it were an Array:
+  Object.keys(obj).forEach((key, mainIndex) => {
+    // Our handler function from above:
+    let conditions = hasConditionalFormatting(key, obj[key], depth, obj);
+    //
+    // If nothing came back we know the formatting is very simple:
+    if (conditions.isNone) str += `${padding}/${key} ${obj[key]}`;
+    else if (conditions.isReal) str += `${padding}/${key} ${obj[key]}.0`;
+    else if (conditions.isHex) {
+      // Otherwise we have to handle formatting per condition
+      let hex = asciiToHex(obj[key]);
+      let byteLength = hex.length;
+      // AIA seems to only display 64 chars in sequence
+      if (byteLength > 64)
+        hex = chunkSubstr(hex, 64)
+          .map((i, nn) => `${nn ? `${padding}\t` : ""}${i}`)
+          .join("\r\n");
+      str += `${padding}/${key} [ ${
+        byteLength / 2
+      }\r\n${padding}\t${hex}\r\n${padding}]`;
+    } else if (conditions.isDec) {
+      // Decimal conversion is straightforward, just need to encode the values:
+      str += `${padding}/${key} ${asciiToDecimal(obj[key])}`;
+    } else if (conditions.isEnum) {
+      // Enums are where we recurse and loop into children with this same function
+      let enumKey = key.replace(/s$/, "");
+      // Doublecheck we know what data we're dealing with:
+      if (Array.isArray(obj[key]))
+        obj[key].forEach((value, index) => {
+          // Then for each enum, print out an AIA style block:
+          str += `${padding}/${enumKey}-${index + 1} {\r\n`;
+          // Recurse into the child to print it normally
+          str = unfoldPerDepth(value, str, depth + 1, obj);
+          // Then close the block
+          str += `${padding}}\r\n`;
+        });
+    }
+    // Just to ensure that props are being printed on separate lines:
+    str += "\r\n";
+  });
+  return str;
+}
+```
+
+---
+
+<br />
+
+## Result
 
 <table cellpadding="0" cellspacing="0" border="2" style="width: 1000px;">
   <tr>
     <td>
-      <strong>INPUT</strong>
+      <strong>INPUT - ../actionsToJSON/input.aia</strong>
     </td>
     <td>
-      <strong>OUTPUT</strong>
+      <strong>OUTPUT - ./output.aia</strong>
     </td>
   </tr>
   <tr style="height:800px; width:1000px; margin:0; padding: 0;">
@@ -542,5 +662,3 @@
     </td>
   </tr>
 </table>
-
-Testing
