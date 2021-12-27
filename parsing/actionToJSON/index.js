@@ -131,7 +131,7 @@ class ActionToJSON {
     // These are placeholder values for now, just want keep each format for demonstration and debugging:
     this.value = temp;
     this.schema = finalSchema;
-    this.data = data;
+    this.data = this.raw.split(/\r\n/);
   }
   convertAIAToJS() {
     return null;

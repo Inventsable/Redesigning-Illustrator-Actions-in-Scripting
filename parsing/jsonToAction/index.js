@@ -67,7 +67,10 @@ function unfoldPerDepth(obj, str = "", depth = 0, parent = null, enumI = 0) {
 function hasConditionalFormatting(key, value, depth, parent) {
   let conditions = {
     isEnum: [() => ["actions", "events", "parameters"].includes(key)],
-    isHex: [() => depth == 0 && ["name"].includes(key)],
+    isHex: [
+      () => depth == 0 && ["name"].includes(key),
+      () => key == "value" && parent["key"] && parent["key"] == "idct",
+    ],
     isDec: [() => depth > 2 && ["key"].includes(key)],
   };
   let diagnostic = Object.keys(conditions)
