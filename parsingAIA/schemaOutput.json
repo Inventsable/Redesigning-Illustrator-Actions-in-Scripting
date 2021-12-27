@@ -1,0 +1,1317 @@
+[
+    {
+        "depth": 0,
+        "raw": "/version 3",
+        "index": 0,
+        "type": "param",
+        "value": "3",
+        "name": "version"
+    },
+    {
+        "depth": 0,
+        "raw": "/name [ 9",
+        "index": 1,
+        "value": "[ 9\t73616d706c65536574]",
+        "name": "name",
+        "type": "hexadecimal"
+    },
+    {
+        "depth": 0,
+        "raw": "/isOpen 1",
+        "index": 4,
+        "type": "param",
+        "value": "1",
+        "name": "isOpen"
+    },
+    {
+        "depth": 0,
+        "raw": "/actionCount 3",
+        "index": 5,
+        "type": "param",
+        "value": "3",
+        "name": "actionCount"
+    },
+    {
+        "depth": 0,
+        "raw": "/action-1 {",
+        "index": 6,
+        "name": "action-1",
+        "type": "container-A",
+        "children": [
+            {
+                "depth": 1,
+                "raw": "\t/name [ 15",
+                "index": 7,
+                "value": "[ 15\t\t4170706c792052656420436f6c6f72\t]",
+                "name": "name",
+                "type": "hexadecimal"
+            },
+            {
+                "depth": 1,
+                "raw": "\t/keyIndex 8",
+                "index": 10,
+                "type": "param",
+                "value": "8",
+                "name": "keyIndex"
+            },
+            {
+                "depth": 1,
+                "raw": "\t/colorIndex 5",
+                "index": 11,
+                "type": "param",
+                "value": "5",
+                "name": "colorIndex"
+            },
+            {
+                "depth": 1,
+                "raw": "\t/isOpen 0",
+                "index": 12,
+                "type": "param",
+                "value": "0",
+                "name": "isOpen"
+            },
+            {
+                "depth": 1,
+                "raw": "\t/eventCount 1",
+                "index": 13,
+                "type": "param",
+                "value": "1",
+                "name": "eventCount"
+            },
+            {
+                "depth": 1,
+                "raw": "\t/event-1 {",
+                "index": 14,
+                "name": "event-1",
+                "type": "container-A",
+                "children": [
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/useRulersIn1stQuadrant 0",
+                        "index": 15,
+                        "type": "param",
+                        "value": "0",
+                        "name": "useRulersIn1stQuadrant"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/internalName (ai_plugin_setColor)",
+                        "index": 16,
+                        "type": "param",
+                        "value": "(ai_plugin_setColor)",
+                        "name": "internalName"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/localizedName [ 9",
+                        "index": 17,
+                        "value": "[ 9\t\t\t53657420636f6c6f72\t\t]",
+                        "name": "localizedName",
+                        "type": "hexadecimal"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/isOpen 1",
+                        "index": 20,
+                        "type": "param",
+                        "value": "1",
+                        "name": "isOpen"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/isOn 1",
+                        "index": 21,
+                        "type": "param",
+                        "value": "1",
+                        "name": "isOn"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/hasDialog 0",
+                        "index": 22,
+                        "type": "param",
+                        "value": "0",
+                        "name": "hasDialog"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameterCount 6",
+                        "index": 23,
+                        "type": "param",
+                        "value": "6",
+                        "name": "parameterCount"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-1 {",
+                        "index": 24,
+                        "name": "parameter-1",
+                        "type": "container-A",
+                        "children": [
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/key 1768186740",
+                                "index": 25,
+                                "type": "decimal",
+                                "value": "1768186740",
+                                "name": "key"
+                            },
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/showInPalette -1",
+                                "index": 26,
+                                "type": "param",
+                                "value": "-1",
+                                "name": "showInPalette"
+                            },
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/type (ustring)",
+                                "index": 27,
+                                "type": "param",
+                                "value": "(ustring)",
+                                "name": "type"
+                            },
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/value [ 10",
+                                "index": 28,
+                                "value": "[ 10\t\t\t\t46696c6c20636f6c6f72\t\t\t]",
+                                "name": "value",
+                                "type": "hexadecimal"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-2 {",
+                        "index": 32,
+                        "value": "/key 1718185068\t\t\t/showInPalette -1\t\t\t/type (boolean)\t\t\t/value 1",
+                        "name": "parameter-2",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 1718185068",
+                                "value": "1718185068"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (boolean)",
+                                "value": "(boolean)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 1",
+                                "value": "1"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-3 {",
+                        "index": 38,
+                        "name": "parameter-3",
+                        "type": "container-A",
+                        "children": [
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/key 1954115685",
+                                "index": 39,
+                                "type": "decimal",
+                                "value": "1954115685",
+                                "name": "key"
+                            },
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/showInPalette -1",
+                                "index": 40,
+                                "type": "param",
+                                "value": "-1",
+                                "name": "showInPalette"
+                            },
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/type (enumerated)",
+                                "index": 41,
+                                "type": "param",
+                                "value": "(enumerated)",
+                                "name": "type"
+                            },
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/name [ 9",
+                                "index": 42,
+                                "value": "[ 9\t\t\t\t52474220636f6c6f72\t\t\t]",
+                                "name": "name",
+                                "type": "hexadecimal"
+                            },
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/value 2",
+                                "index": 45,
+                                "type": "param",
+                                "value": "2",
+                                "name": "value"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-4 {",
+                        "index": 47,
+                        "value": "/key 1919247406\t\t\t/showInPalette -1\t\t\t/type (real)\t\t\t/value 234.0",
+                        "name": "parameter-4",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 1919247406",
+                                "value": "1919247406"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (real)",
+                                "value": "(real)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 234.0",
+                                "value": "234.0"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-5 {",
+                        "index": 53,
+                        "value": "/key 1735550318\t\t\t/showInPalette -1\t\t\t/type (real)\t\t\t/value 10.0",
+                        "name": "parameter-5",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 1735550318",
+                                "value": "1735550318"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (real)",
+                                "value": "(real)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 10.0",
+                                "value": "10.0"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-6 {",
+                        "index": 59,
+                        "value": "/key 1651275109\t\t\t/showInPalette -1\t\t\t/type (real)\t\t\t/value 10.0",
+                        "name": "parameter-6",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 1651275109",
+                                "value": "1651275109"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (real)",
+                                "value": "(real)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 10.0",
+                                "value": "10.0"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "depth": 0,
+        "raw": "/action-2 {",
+        "index": 67,
+        "name": "action-2",
+        "type": "container-A",
+        "children": [
+            {
+                "depth": 1,
+                "raw": "\t/name [ 8",
+                "index": 68,
+                "value": "[ 8\t\t7361766546696c65\t]",
+                "name": "name",
+                "type": "hexadecimal"
+            },
+            {
+                "depth": 1,
+                "raw": "\t/keyIndex 0",
+                "index": 71,
+                "type": "param",
+                "value": "0",
+                "name": "keyIndex"
+            },
+            {
+                "depth": 1,
+                "raw": "\t/colorIndex 0",
+                "index": 72,
+                "type": "param",
+                "value": "0",
+                "name": "colorIndex"
+            },
+            {
+                "depth": 1,
+                "raw": "\t/isOpen 0",
+                "index": 73,
+                "type": "param",
+                "value": "0",
+                "name": "isOpen"
+            },
+            {
+                "depth": 1,
+                "raw": "\t/eventCount 1",
+                "index": 74,
+                "type": "param",
+                "value": "1",
+                "name": "eventCount"
+            },
+            {
+                "depth": 1,
+                "raw": "\t/event-1 {",
+                "index": 75,
+                "name": "event-1",
+                "type": "container-A",
+                "children": [
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/useRulersIn1stQuadrant 0",
+                        "index": 76,
+                        "type": "param",
+                        "value": "0",
+                        "name": "useRulersIn1stQuadrant"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/internalName (adobe_saveDocumentAs)",
+                        "index": 77,
+                        "type": "param",
+                        "value": "(adobe_saveDocumentAs)",
+                        "name": "internalName"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/localizedName [ 7",
+                        "index": 78,
+                        "value": "[ 7\t\t\t53617665204173\t\t]",
+                        "name": "localizedName",
+                        "type": "hexadecimal"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/isOpen 0",
+                        "index": 81,
+                        "type": "param",
+                        "value": "0",
+                        "name": "isOpen"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/isOn 1",
+                        "index": 82,
+                        "type": "param",
+                        "value": "1",
+                        "name": "isOn"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/hasDialog 1",
+                        "index": 83,
+                        "type": "param",
+                        "value": "1",
+                        "name": "hasDialog"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/showDialog 0",
+                        "index": 84,
+                        "type": "param",
+                        "value": "0",
+                        "name": "showDialog"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameterCount 11",
+                        "index": 85,
+                        "type": "param",
+                        "value": "11",
+                        "name": "parameterCount"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-1 {",
+                        "index": 86,
+                        "value": "/key 1668116594\t\t\t/showInPalette -1\t\t\t/type (boolean)\t\t\t/value 1",
+                        "name": "parameter-1",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 1668116594",
+                                "value": "1668116594"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (boolean)",
+                                "value": "(boolean)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 1",
+                                "value": "1"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-2 {",
+                        "index": 92,
+                        "value": "/key 1885627936\t\t\t/showInPalette -1\t\t\t/type (boolean)\t\t\t/value 1",
+                        "name": "parameter-2",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 1885627936",
+                                "value": "1885627936"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (boolean)",
+                                "value": "(boolean)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 1",
+                                "value": "1"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-3 {",
+                        "index": 98,
+                        "value": "/key 1668445298\t\t\t/showInPalette -1\t\t\t/type (integer)\t\t\t/value 24",
+                        "name": "parameter-3",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 1668445298",
+                                "value": "1668445298"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (integer)",
+                                "value": "(integer)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 24",
+                                "value": "24"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-4 {",
+                        "index": 104,
+                        "value": "/key 1702392878\t\t\t/showInPalette -1\t\t\t/type (integer)\t\t\t/value 1",
+                        "name": "parameter-4",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 1702392878",
+                                "value": "1702392878"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (integer)",
+                                "value": "(integer)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 1",
+                                "value": "1"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-5 {",
+                        "index": 110,
+                        "value": "/key 1768842092\t\t\t/showInPalette -1\t\t\t/type (integer)\t\t\t/value 0",
+                        "name": "parameter-5",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 1768842092",
+                                "value": "1768842092"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (integer)",
+                                "value": "(integer)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 0",
+                                "value": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-6 {",
+                        "index": 116,
+                        "value": "/key 1918989423\t\t\t/showInPalette -1\t\t\t/type (real)\t\t\t/value 100.0",
+                        "name": "parameter-6",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 1918989423",
+                                "value": "1918989423"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (real)",
+                                "value": "(real)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 100.0",
+                                "value": "100.0"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-7 {",
+                        "index": 122,
+                        "value": "/key 1886545516\t\t\t/showInPalette -1\t\t\t/type (integer)\t\t\t/value 1",
+                        "name": "parameter-7",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 1886545516",
+                                "value": "1886545516"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (integer)",
+                                "value": "(integer)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 1",
+                                "value": "1"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-8 {",
+                        "index": 128,
+                        "value": "/key 1936548194\t\t\t/showInPalette -1\t\t\t/type (boolean)\t\t\t/value 0",
+                        "name": "parameter-8",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 1936548194",
+                                "value": "1936548194"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (boolean)",
+                                "value": "(boolean)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 0",
+                                "value": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-9 {",
+                        "index": 134,
+                        "name": "parameter-9",
+                        "type": "container-A",
+                        "children": [
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/key 1851878757",
+                                "index": 135,
+                                "type": "decimal",
+                                "value": "1851878757",
+                                "name": "key"
+                            },
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/showInPalette -1",
+                                "index": 136,
+                                "type": "param",
+                                "value": "-1",
+                                "name": "showInPalette"
+                            },
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/type (ustring)",
+                                "index": 137,
+                                "type": "param",
+                                "value": "(ustring)",
+                                "name": "type"
+                            },
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/value [ 84",
+                                "index": 138,
+                                "value": "[ 84\t\t\t\t433a5c55736572735c54525363685c417070446174615c526f616d696e675c41\t\t\t\t646f62655c4345505c657874656e73696f6e735c6c6f676f2d7061636b616765\t\t\t\t2d736b657463682d686f73745c73616e64626f78\t\t\t]",
+                                "name": "value",
+                                "type": "hexadecimal"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-10 {",
+                        "index": 144,
+                        "name": "parameter-10",
+                        "type": "container-A",
+                        "children": [
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/key 1718775156",
+                                "index": 145,
+                                "type": "decimal",
+                                "value": "1718775156",
+                                "name": "key"
+                            },
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/showInPalette -1",
+                                "index": 146,
+                                "type": "param",
+                                "value": "-1",
+                                "name": "showInPalette"
+                            },
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/type (ustring)",
+                                "index": 147,
+                                "type": "param",
+                                "value": "(ustring)",
+                                "name": "type"
+                            },
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/value [ 35",
+                                "index": 148,
+                                "value": "[ 35\t\t\t\t41646f626520496c6c7573747261746f7220416e7920466f726d617420577269\t\t\t\t746572\t\t\t]",
+                                "name": "value",
+                                "type": "hexadecimal"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-11 {",
+                        "index": 153,
+                        "name": "parameter-11",
+                        "type": "container-A",
+                        "children": [
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/key 1702392942",
+                                "index": 154,
+                                "type": "decimal",
+                                "value": "1702392942",
+                                "name": "key"
+                            },
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/showInPalette -1",
+                                "index": 155,
+                                "type": "param",
+                                "value": "-1",
+                                "name": "showInPalette"
+                            },
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/type (ustring)",
+                                "index": 156,
+                                "type": "param",
+                                "value": "(ustring)",
+                                "name": "type"
+                            },
+                            {
+                                "depth": 3,
+                                "raw": "\t\t\t/value [ 6",
+                                "index": 157,
+                                "value": "[ 6\t\t\t\t61692c616974\t\t\t]",
+                                "name": "value",
+                                "type": "hexadecimal"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "depth": 0,
+        "raw": "/action-3 {",
+        "index": 163,
+        "name": "action-3",
+        "type": "container-A",
+        "children": [
+            {
+                "depth": 1,
+                "raw": "\t/name [ 8",
+                "index": 164,
+                "value": "[ 8\t\t6d616b6552656374\t]",
+                "name": "name",
+                "type": "hexadecimal"
+            },
+            {
+                "depth": 1,
+                "raw": "\t/keyIndex 0",
+                "index": 167,
+                "type": "param",
+                "value": "0",
+                "name": "keyIndex"
+            },
+            {
+                "depth": 1,
+                "raw": "\t/colorIndex 0",
+                "index": 168,
+                "type": "param",
+                "value": "0",
+                "name": "colorIndex"
+            },
+            {
+                "depth": 1,
+                "raw": "\t/isOpen 0",
+                "index": 169,
+                "type": "param",
+                "value": "0",
+                "name": "isOpen"
+            },
+            {
+                "depth": 1,
+                "raw": "\t/eventCount 1",
+                "index": 170,
+                "type": "param",
+                "value": "1",
+                "name": "eventCount"
+            },
+            {
+                "depth": 1,
+                "raw": "\t/event-1 {",
+                "index": 171,
+                "name": "event-1",
+                "type": "container-A",
+                "children": [
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/useRulersIn1stQuadrant 0",
+                        "index": 172,
+                        "type": "param",
+                        "value": "0",
+                        "name": "useRulersIn1stQuadrant"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/internalName (ai_plugin_rectTool)",
+                        "index": 173,
+                        "type": "param",
+                        "value": "(ai_plugin_rectTool)",
+                        "name": "internalName"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/localizedName [ 14",
+                        "index": 174,
+                        "value": "[ 14\t\t\t52656374616e676c6520546f6f6c\t\t]",
+                        "name": "localizedName",
+                        "type": "hexadecimal"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/isOpen 0",
+                        "index": 177,
+                        "type": "param",
+                        "value": "0",
+                        "name": "isOpen"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/isOn 1",
+                        "index": 178,
+                        "type": "param",
+                        "value": "1",
+                        "name": "isOn"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/hasDialog 1",
+                        "index": 179,
+                        "type": "param",
+                        "value": "1",
+                        "name": "hasDialog"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/showDialog 0",
+                        "index": 180,
+                        "type": "param",
+                        "value": "0",
+                        "name": "showDialog"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameterCount 6",
+                        "index": 181,
+                        "type": "param",
+                        "value": "6",
+                        "name": "parameterCount"
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-1 {",
+                        "index": 182,
+                        "value": "/key 1953460076\t\t\t/showInPalette -1\t\t\t/type (integer)\t\t\t/value 15",
+                        "name": "parameter-1",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 1953460076",
+                                "value": "1953460076"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (integer)",
+                                "value": "(integer)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 15",
+                                "value": "15"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-2 {",
+                        "index": 188,
+                        "value": "/key 2003072104\t\t\t/showInPalette -1\t\t\t/type (unit real)\t\t\t/value 1377.0\t\t\t/unit 592476268",
+                        "name": "parameter-2",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 2003072104",
+                                "value": "2003072104"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (unit real)",
+                                "value": "(unit real)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 1377.0",
+                                "value": "1377.0"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "unit",
+                                "raw": "/unit 592476268",
+                                "value": "592476268"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-3 {",
+                        "index": 195,
+                        "value": "/key 1751607412\t\t\t/showInPalette -1\t\t\t/type (unit real)\t\t\t/value 997.0\t\t\t/unit 592476268",
+                        "name": "parameter-3",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 1751607412",
+                                "value": "1751607412"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (unit real)",
+                                "value": "(unit real)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 997.0",
+                                "value": "997.0"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "unit",
+                                "raw": "/unit 592476268",
+                                "value": "592476268"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-4 {",
+                        "index": 202,
+                        "value": "/key 1668182644\t\t\t/showInPalette -1\t\t\t/type (boolean)\t\t\t/value 0",
+                        "name": "parameter-4",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 1668182644",
+                                "value": "1668182644"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (boolean)",
+                                "value": "(boolean)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 0",
+                                "value": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-5 {",
+                        "index": 208,
+                        "value": "/key 1668183128\t\t\t/showInPalette -1\t\t\t/type (unit real)\t\t\t/value 1050.5\t\t\t/unit 592476268",
+                        "name": "parameter-5",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 1668183128",
+                                "value": "1668183128"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (unit real)",
+                                "value": "(unit real)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 1050.5",
+                                "value": "1050.5"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "unit",
+                                "raw": "/unit 592476268",
+                                "value": "592476268"
+                            }
+                        ]
+                    },
+                    {
+                        "depth": 2,
+                        "raw": "\t\t/parameter-6 {",
+                        "index": 215,
+                        "value": "/key 1668183129\t\t\t/showInPalette -1\t\t\t/type (unit real)\t\t\t/value 1861.5\t\t\t/unit 592476268",
+                        "name": "parameter-6",
+                        "type": "container-B",
+                        "children": [
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "key",
+                                "raw": "/key 1668183129",
+                                "value": "1668183129"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "showInPalette",
+                                "raw": "/showInPalette -1",
+                                "value": "-1"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "type",
+                                "raw": "/type (unit real)",
+                                "value": "(unit real)"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "value",
+                                "raw": "/value 1861.5",
+                                "value": "1861.5"
+                            },
+                            {
+                                "index": -1,
+                                "depth": 3,
+                                "name": "unit",
+                                "raw": "/unit 592476268",
+                                "value": "592476268"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

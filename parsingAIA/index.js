@@ -20,7 +20,7 @@ class ActionBoy {
   value = null;
   constructor(param) {
     if (/string/i.test(param)) {
-      this.raw = aiaText;
+      this.raw = param;
       this.createSchema();
     } else if (/object/i.test(param)) {
       console.log("Should add Action generation via config object here");
@@ -40,14 +40,8 @@ class ActionBoy {
   createSchema() {
     // Immediately split into Array containing lines
     let lines = this.raw.split(/\r\n/);
-    let depthMap = [
-      ...new Set(
-        lines.filter((a) => /\t/.test(a)).map((i) => i.match(/\t/gm).length)
-      ),
-    ];
-    let maxDepth = Math.max(...depthMap);
 
-    // Instead of treating it like functional data, I want to treat it like a line reader:
+    // Instead of treating it like functional data to parse out syntax, instead treat it like a line reader:
     let data = lines.map((v, i, a) => {
       // Make an intermediary metadata object about each line including tab depth
       let child = {
@@ -104,11 +98,18 @@ class ActionBoy {
           tempChild["children"] = data
             .filter((i) => i.parent == child.index)
             .map((grandchild) => {
-              // And once more, this is presumably the deepest an AIA data structure will go
+              // Since we have a reliable formatting without dynamic tab-depth, we don't really need recursion.
+              // But we will need to travel down to
               let tempGrandchild = Object.assign({}, grandchild);
-              tempGrandchild["children"] = data.filter(
-                (i) => i.parent == tempGrandchild.index
-              );
+              tempGrandchild["children"] = data
+                .filter((i) => i.parent == tempGrandchild.index)
+                .map((greatGrandchild) => {
+                  let tempGreatGrandchild = Object.assign({}, greatGrandchild);
+                  tempGreatGrandchild["children"] = data.filter(
+                    (i) => i.parent == tempGreatGrandchild.index
+                  );
+                  return tempGreatGrandchild; // This is ActionSet.action-1.event-1.parameter-1
+                });
               // We should be working with something like ActionSet.action-1.event-1 here
               return tempGrandchild;
             });
@@ -118,12 +119,196 @@ class ActionBoy {
       // And chain essentially being ActionSet.children, to be unfolded later as a propList
       chain.push(rootGroup);
     }
-    this.schema = chain;
+    // The above is still sloppy though. It *could* be triggered via depthMap, with item construction done via function
+
+    // Now we can use recursion
+    let finalSchema = sanitizeSchema(chain);
+
+    let temp = translateSchema(finalSchema);
+    this.value = temp;
+
+    this.schema = finalSchema;
     this.data = data;
   }
   convertAIAToJS() {
     return null;
   }
+}
+
+// We've mapped out the relations between lines, but we still don't have it in the most ideal form.
+// We'd want to join any values together instead of keeping them as separate lines, so as an intermediary:
+function sanitizeSchema(data) {
+  // We shouldn't need all the same data from this point forward, let's trim things down. Start with a new Array
+  let temp = [];
+  data.forEach((rootPropGroup) => {
+    // We'll be replacing parent values with children content and merging lines together,
+    // so we should only be concerned about keeping the most basic information:
+    let rootClone = {
+      depth: rootPropGroup.depth,
+      raw: rootPropGroup.raw,
+      index: rootPropGroup.index,
+    };
+
+    // If this has children, it must be a container object of some sort
+    if (rootPropGroup["children"] && rootPropGroup["children"].length) {
+      //
+      // We need to check if it's deeply nested or shallow (no children contain their own children).
+      //
+      // If shallow, this would be a value like "/name [ 11 231daf321... ]"
+      // If deep, it would be something like "/action { ... }"
+      let isDeep = rootPropGroup["children"].filter(
+        (i) => i.children && i.children.length
+      ).length;
+
+      if (!isDeep) {
+        // If value is 0, we're false and shallow. We can merge the children into the parent value:
+        rootClone["value"] = `${rootClone.raw}${rootPropGroup.children
+          .map((i) => i.raw)
+          .join("")}`;
+
+        let str = rootClone.value.trim();
+        rootClone["name"] = /\/([^\s]*)/.exec(str)[1];
+        str = str.replace(/^\/([^\s]*)/, "").trim(); // This should represent "{ ... }"
+        rootClone.value = str;
+        // This is still a simplification however, because this may still be something like:
+        // "\t\t/parameter-4 {\t\t\t/key 1919247406\t\t\t/showInPalette -1 ... }"
+        // It may be an object, but at least we know there aren't conflicts with nested braces.
+        if (/\{/.test(rootClone.value) && /\}/.test(rootClone.value)) {
+          // So in the case it is a deepnest Object, let's parse it:
+          // At this point we can remove the braces:
+          //
+          rootClone["type"] = "container-B";
+          str = str.replace(/^(\{)|(\})$/gm, "").trim();
+
+          // Then we'll do a basic split of the string and try to replicate the schema format:
+          rootClone.value = str;
+          rootClone["children"] = str.split(/\t{1,}/gm).map((subProp) => {
+            let subClone = {
+              index: -1,
+              depth: rootClone.depth + 1,
+              name: subProp.trim().replace(/^\//, "").replace(/\s.*/, ""),
+              raw: subProp,
+              value: subProp
+                .trim()
+                .replace(/^\//, "")
+                .replace(/^[\s]*/, "")
+                .trim(),
+            };
+            // Suddenly this feels pretty sloppy...
+            subClone.value = new RegExp(`^${subClone.name}`).test(
+              subClone.value
+            )
+              ? subClone.value
+                  .replace(new RegExp(`^${subClone.name}`), "")
+                  .trim()
+              : subClone.value;
+            if (subClone.value + "" == "null") {
+              subClone.value = subProp
+                .trim()
+                .replace(/^\/[^\s]/, "")
+                .trim();
+            }
+
+            return subClone;
+          });
+        } else if (/\[/.test(rootClone.value) && /\]/.test(rootClone.value)) {
+          // We know when something is hexadecimal due to the bracket syntax:
+          rootClone["type"] = "hexadecimal";
+        } else {
+          // Nothing should ever reach this
+          rootClone["type"] = "undefined-A";
+        }
+      } else {
+        rootClone["name"] = rootClone.raw.trim().replace(/^\//, "");
+
+        rootClone.name = rootClone.name.match(/[^-]*-\d{1,}/)[0];
+        // If deep though, we need to recurse inside then merge the shallow children before merging the parent:
+        rootClone["type"] = "container-A";
+        rootClone["children"] = sanitizeSchema(rootPropGroup.children);
+      }
+      temp.push(rootClone);
+    } else if (/^\t*\/[^\s]*/.test(rootPropGroup.raw)) {
+      // This is probably a one-line value:
+      rootClone["type"] = "param";
+      rootClone["value"] = rootPropGroup.raw.trim();
+      if (/\/[^\s]*/.test(rootClone.value))
+        rootClone["name"] = /\/([^\s]*)/.exec(rootClone.value)[1];
+      else rootClone["name"] = "undefined-B";
+      rootClone.value = rootClone.value
+        .replace(`\/${rootClone.name}`, "")
+        .trim();
+
+      if (/^\d{10}$/.test(rootClone.value)) {
+        rootClone["type"] = "decimal";
+      }
+
+      temp.push(rootClone);
+    } else {
+      // This is almost certainly a closing bracket, empty newline, or format artifact with no real value.
+      // We don't need this and can ignore it.
+    }
+  });
+  return temp;
+}
+
+function sanitizeValue(value, type) {
+  let temp = value.trim();
+  if (/hex/i.test(type)) {
+    temp = value.replace(/(\[|\])/gm, "").trim();
+    temp = temp
+      .split(/\t{1,}/gm)
+      .filter((i, ii) => i.length && ii && /^[a-f0-9]*$/.test(i))
+      .join("");
+    temp = hexToAscii(temp);
+  } else if (/decimal/i.test(type)) {
+    temp = decimalToAscii(value);
+  } else if (!isNaN(Number(value))) {
+    // This is probably an integer of some kind.
+
+    // Since there's a chance a decimal encoded value could reach this (if container-A children)
+    if (/^\d{10}$/.test(temp)) {
+      temp = decimalToAscii(temp);
+    } else temp = +value;
+  } else {
+    // Chances are this is just a normal string
+    temp = value;
+  }
+  return temp;
+}
+
+// Now we'll take our schema Array and iterate over it like a propList in order to construct a 1:1 Object representation
+function translateSchema(data, depth = 0) {
+  // This is rather simple, we need a temporary object
+  let result = {};
+
+  // Since we're recusing, we need to have expectations of the data coming in:
+  if (data && data.length && Array.isArray(data)) {
+    for (let entry of data) {
+      // We first check if this is enumerable, like action-1, event-2, parameter-3, etc
+      let isEnum = /^\/([^\s-]*)-\d{1,}/;
+      if (isEnum.test(entry.raw.trim())) {
+        if (entry && entry.name) {
+          // Otherwise we trim "-[#]" from the current name and add s:
+          let enumName = entry.name.replace(/-.*/, "") + "s";
+
+          // Now we can guarantee that object.actions exists:
+          result[enumName] = result[enumName] || [];
+
+          // But if this has children, we recurse deeper
+          if (entry.children && entry.children.length)
+            result[enumName].push(translateSchema(entry.children, depth + 1));
+        } else {
+          console.log("Something isn't iterating correctly:");
+          result["errorFlags"] = result["errorFlags"] || [];
+          result.errorFlags.push(entry);
+        }
+      } else {
+        // Otherwise we can simply pass in the value and type to know how to handle each property:
+        result[entry.name] = sanitizeValue(entry.value, entry.type);
+      }
+    }
+  }
+  return result;
 }
 
 function hexToAscii(input) {
