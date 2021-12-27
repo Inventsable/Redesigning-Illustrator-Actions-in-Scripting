@@ -13,7 +13,7 @@
  * every recursion and RegEx issue I was having with previous attempts.
  */
 
-class ActionBoy {
+class ActionToJSON {
   raw = "";
   data = null;
   schema = null;
@@ -329,13 +329,12 @@ function asciiToHex(input) {
     output += input.toString().charCodeAt(i).toString(16);
   return output;
 }
+function asciiToDecimal(input) {
+  return parseInt(asciiToHex(input), 16);
+}
 
 function decimalToAscii(input) {
   return hexToAscii(Number((input + "").trim()).toString(16));
 }
 
-function asciiToDecimal(input) {
-  return parseInt(asciiToHex(input), 16);
-}
-
-module.exports = ActionBoy;
+module.exports = ActionToJSON;
