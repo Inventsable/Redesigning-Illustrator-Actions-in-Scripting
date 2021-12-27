@@ -3,7 +3,7 @@
 	73616d706c65536574
 ]
 /isOpen 1
-/actionCount 3
+/actionCount 4
 /action-1 {
 	/name [ 15
 		4170706c792052656420436f6c6f72
@@ -219,6 +219,42 @@
 			/type (unit real)
 			/value 1861.5
 			/unit 592476268
+		}
+	}
+}
+/action-4 {
+	/name [ 9
+		72756e536372697074
+	]
+	/keyIndex 0
+	/colorIndex 0
+	/isOpen 1
+	/eventCount 1
+	/event-1 {
+		/useRulersIn1stQuadrant 0
+		/internalName (adobe_commandManager)
+		/localizedName [ 16
+			416363657373204d656e75204974656d
+		]
+		/isOpen 0
+		/isOn 1
+		/hasDialog 0
+		/parameterCount 2
+		/parameter-1 {
+			/key 1769238125
+			/showInPalette -1
+			/type (ustring)
+			/value [ 17
+				5f30303030303234443346443346344230
+			]
+		}
+		/parameter-2 {
+			/key 1818455661
+			/showInPalette -1
+			/type (ustring)
+			/value [ 10
+				74657374536372697074
+			]
 		}
 	}
 }

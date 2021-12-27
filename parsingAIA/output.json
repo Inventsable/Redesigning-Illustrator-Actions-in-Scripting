@@ -2,7 +2,7 @@
   "version": 3,
   "name": "sampleSet",
   "isOpen": 1,
-  "actionCount": 3,
+  "actionCount": 4,
   "actions": [
     {
       "name": "Apply Red Color",
@@ -204,6 +204,38 @@
               "type": "(unit real)",
               "value": 1861.5,
               "unit": 592476268
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "runScript",
+      "keyIndex": 0,
+      "colorIndex": 0,
+      "isOpen": 1,
+      "eventCount": 1,
+      "events": [
+        {
+          "useRulersIn1stQuadrant": 0,
+          "internalName": "(adobe_commandManager)",
+          "localizedName": "Access Menu Item",
+          "isOpen": 0,
+          "isOn": 1,
+          "hasDialog": 0,
+          "parameterCount": 2,
+          "parameters": [
+            {
+              "key": "itnm",
+              "showInPalette": -1,
+              "type": "(ustring)",
+              "value": "_0000024D3FD3F4B0"
+            },
+            {
+              "key": "lcnm",
+              "showInPalette": -1,
+              "type": "(ustring)",
+              "value": "testScript"
             }
           ]
         }

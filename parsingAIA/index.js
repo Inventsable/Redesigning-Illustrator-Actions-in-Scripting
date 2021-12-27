@@ -37,7 +37,9 @@ class ActionBoy {
   get data() {
     return this.data;
   }
+  // This should be called immediately upon any new ActionBoy(aiaText) assignment:
   createSchema() {
+    //
     // Immediately split into Array containing lines
     let lines = this.raw.split(/\r\n/);
 
@@ -121,12 +123,13 @@ class ActionBoy {
     }
     // The above is still sloppy though. It *could* be triggered via depthMap, with item construction done via function
 
-    // Now we can use recursion
     let finalSchema = sanitizeSchema(chain);
 
+    // Now we can finally use recursion and RegExp:
     let temp = translateSchema(finalSchema);
-    this.value = temp;
 
+    // These are placeholder values for now, just want keep each format for demonstration and debugging:
+    this.value = temp;
     this.schema = finalSchema;
     this.data = data;
   }
@@ -251,6 +254,7 @@ function sanitizeSchema(data) {
   return temp;
 }
 
+// This should be simple if we've correctly determined the type above
 function sanitizeValue(value, type) {
   let temp = value.trim();
   if (/hex/i.test(type)) {
@@ -265,12 +269,13 @@ function sanitizeValue(value, type) {
   } else if (!isNaN(Number(value))) {
     // This is probably an integer of some kind.
 
-    // Since there's a chance a decimal encoded value could reach this (if container-A children)
+    // Since there's a chance a decimal encoded value could reach this (if container-A children),
+    // let's check if it matches the canonical 10-length format of AIA decimal encoded values:
     if (/^\d{10}$/.test(temp)) {
       temp = decimalToAscii(temp);
-    } else temp = +value;
+    } else temp = +value; // If it doesn't, let's just convert it to a number
   } else {
-    // Chances are this is just a normal string
+    // Chances are this is just a normal string, no need to do anything special
     temp = value;
   }
   return temp;
