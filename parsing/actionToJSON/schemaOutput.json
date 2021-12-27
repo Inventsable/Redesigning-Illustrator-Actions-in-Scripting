@@ -64,7 +64,7 @@
       },
       {
         "depth": 1,
-        "raw": "\t/isOpen 0",
+        "raw": "\t/isOpen 0 ",
         "index": 12,
         "type": "param",
         "value": "0",

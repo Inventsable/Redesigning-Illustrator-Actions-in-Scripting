@@ -27,29 +27,61 @@ class JSONtoAction {
     return this.data;
   }
   createSchema() {
-    let temp = unfoldPerDepth(this.raw);
-    this.value = temp;
-    console.log(temp);
+    this.value =
+      unfoldPerDepth(this.raw)
+        .split("\r\n")
+        .filter((i) => i.length)
+        .join("\r\n") + "\r\n";
   }
 }
 
-function unfoldPerDepth(obj, str = "", depth = 0, parent = null, enumI = 0) {
+function chunkSubstr(str, size) {
+  const numChunks = Math.ceil(str.length / size);
+  const chunks = new Array(numChunks);
+  for (let i = 0, o = 0; i < numChunks; ++i, o += size)
+    chunks[i] = str.substr(o, size);
+  return chunks;
+}
+
+function unfoldPerDepth(obj, str = "", depth = 0, parent = null) {
   let padding = "";
-  for (let i = 1; i <= depth; i++) padding += "\\t";
-  Object.keys(obj).forEach((key) => {
+  for (let i = 1; i <= depth; i++) padding += "\t";
+  Object.keys(obj).forEach((key, mainIndex) => {
+    // Use our super slick diagnostic function
     let conditions = hasConditionalFormatting(key, obj[key], depth, obj);
-    if (conditions.isNone) {
-      str += `${padding}/${key} ${obj[key]}`;
-    } else if (conditions.isHex) {
+    // If nothing came back we know the formatting is very simple:
+    if (conditions.isNone) str += `${padding}/${key} ${obj[key]}`;
+    else if (conditions.isReal) str += `${padding}/${key} ${obj[key]}.0`;
+    else if (conditions.isHex) {
+      // Otherwise we have to handle formatting per condition
       let hex = asciiToHex(obj[key]);
+      let byteLength = hex.length;
+      // AIA seems to only display 64 chars in sequence
+      if (byteLength > 64)
+        hex = chunkSubstr(hex, 64)
+          .map((i, nn) => `${nn ? `${padding}\t` : ""}${i}`)
+          .join("\r\n");
       str += `${padding}/${key} [ ${
-        hex.length / 2
+        byteLength / 2
       }\r\n${padding}\t${hex}\r\n${padding}]`;
     } else if (conditions.isDec) {
+      // Decimal conversion is straightforward, just need to encode the values:
       str += `${padding}/${key} ${asciiToDecimal(obj[key])}`;
     } else if (conditions.isEnum) {
-      str += "bop";
+      // Enums are where we recurse and loop into children with this same function
+      let enumKey = key.replace(/s$/, "");
+      // Doublecheck we know what data we're dealing with:
+      if (Array.isArray(obj[key]))
+        obj[key].forEach((value, index) => {
+          // Then for each enum, print out an AIA style block:
+          str += `${padding}/${enumKey}-${index + 1} {\r\n`;
+          // Recurse into the child to print it normally
+          str = unfoldPerDepth(value, str, depth + 1, obj);
+          // Then close the block
+          str += `${padding}}\r\n`;
+        });
     }
+    // Just to ensure that props are being printed on separate lines:
     str += "\r\n";
   });
   return str;
@@ -68,10 +100,21 @@ function hasConditionalFormatting(key, value, depth, parent) {
   let conditions = {
     isEnum: [() => ["actions", "events", "parameters"].includes(key)],
     isHex: [
-      () => depth == 0 && ["name"].includes(key),
-      () => key == "value" && parent["key"] && parent["key"] == "idct",
+      () => ["name"].includes(key),
+      () => ["localizedName"].includes(key),
+      () =>
+        key == "value" &&
+        parent["type"] &&
+        ["(ustring)"].includes(parent["type"]),
     ],
     isDec: [() => depth > 2 && ["key"].includes(key)],
+    isReal: [
+      () =>
+        key == "value" &&
+        parent["type"] &&
+        /real/i.test(parent["type"]) &&
+        !/\./.test(value),
+    ],
   };
   let diagnostic = Object.keys(conditions)
     .map((k) => {
@@ -91,6 +134,7 @@ function hasConditionalFormatting(key, value, depth, parent) {
     isEnum: diagnostic.includes("isEnum"),
     isHex: diagnostic.includes("isHex"),
     isDec: diagnostic.includes("isDec"),
+    isReal: diagnostic.includes("isReal"),
     isNone: !diagnostic.length,
   };
 }
