@@ -139,8 +139,6 @@ function hasConditionalFormatting(key, value, depth, parent) {
   };
 }
 
-function lookup(key, value, depth, parent) {}
-
 function isJSON(str) {
   try {
     str = JSON.parse(str);
