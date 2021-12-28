@@ -1,11 +1,12 @@
 {
   "name": "actionsetspec",
   "version": "1.0.0",
-  "description": "```js\r /version 3\r /name [ 11\r \t436f6c6f725069636b6572\r ]\r /isOpen 1\r /actionCount 2\r /action-1 {\r \t/name [ 6\r \t\t736574524742\r \t]\r \t/keyIndex 7\r \t/colorIndex 2\r \t/isOpen 0\r \t/eventCount 1\r \t/event-1 {\r \t\t/useRulersIn1stQuadrant 0\r \t\t/internalName (ai_plugin_setColor)\r \t\t/localizedName [ 9\r \t\t\t53657420636f6c6f72\r \t\t]\r \t\t/isOpen 0\r \t\t/isOn 1\r \t\t/hasDialog 0\r \t\t/parameterCount 6\r \t\t/parameter-1 {\r \t\t\t/key 1768186740\r ```",
+  "description": "What Actions native to Illustrator scripting could look like",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "parse": "node ./parsing"
+    "test": "node ./JSX/ActionSet.js",
+    "parse": "node ./parsing",
+    "print": "node ./parsing/print.js"
   },
   "repository": {
     "type": "git",

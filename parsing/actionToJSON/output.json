@@ -2,10 +2,10 @@
   "version": 3,
   "name": "sampleSet",
   "isOpen": 1,
-  "actionCount": 4,
+  "actionCount": 2,
   "actions": [
     {
-      "name": "Apply Red Color",
+      "name": "ApplyFillColor",
       "keyIndex": 8,
       "colorIndex": 5,
       "isOpen": 0,
@@ -62,155 +62,7 @@
       ]
     },
     {
-      "name": "saveFile",
-      "keyIndex": 0,
-      "colorIndex": 0,
-      "isOpen": 0,
-      "eventCount": 1,
-      "events": [
-        {
-          "useRulersIn1stQuadrant": 0,
-          "internalName": "(adobe_saveDocumentAs)",
-          "localizedName": "Save As",
-          "isOpen": 0,
-          "isOn": 1,
-          "hasDialog": 1,
-          "showDialog": 0,
-          "parameterCount": 11,
-          "parameters": [
-            {
-              "key": "cmpr",
-              "showInPalette": -1,
-              "type": "(boolean)",
-              "value": 1
-            },
-            {
-              "key": "pdf ",
-              "showInPalette": -1,
-              "type": "(boolean)",
-              "value": 1
-            },
-            {
-              "key": "crtr",
-              "showInPalette": -1,
-              "type": "(integer)",
-              "value": 24
-            },
-            {
-              "key": "ext.",
-              "showInPalette": -1,
-              "type": "(integer)",
-              "value": 1
-            },
-            {
-              "key": "incl",
-              "showInPalette": -1,
-              "type": "(integer)",
-              "value": 0
-            },
-            {
-              "key": "rato",
-              "showInPalette": -1,
-              "type": "(real)",
-              "value": 100
-            },
-            {
-              "key": "prfl",
-              "showInPalette": -1,
-              "type": "(integer)",
-              "value": 1
-            },
-            {
-              "key": "smab",
-              "showInPalette": -1,
-              "type": "(boolean)",
-              "value": 0
-            },
-            {
-              "key": "name",
-              "showInPalette": -1,
-              "type": "(ustring)",
-              "value": "C:\\Users\\TRSch\\AppData\\Roaming\\Adobe\\CEP\\extensions\\logo-package-sketch-host\\sandbox"
-            },
-            {
-              "key": "frmt",
-              "showInPalette": -1,
-              "type": "(ustring)",
-              "value": "Adobe Illustrator Any Format Writer"
-            },
-            {
-              "key": "extn",
-              "showInPalette": -1,
-              "type": "(ustring)",
-              "value": "ai,ait"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "makeRect",
-      "keyIndex": 0,
-      "colorIndex": 0,
-      "isOpen": 0,
-      "eventCount": 1,
-      "events": [
-        {
-          "useRulersIn1stQuadrant": 0,
-          "internalName": "(ai_plugin_rectTool)",
-          "localizedName": "Rectangle Tool",
-          "isOpen": 0,
-          "isOn": 1,
-          "hasDialog": 1,
-          "showDialog": 0,
-          "parameterCount": 6,
-          "parameters": [
-            {
-              "key": "tool",
-              "showInPalette": -1,
-              "type": "(integer)",
-              "value": 15
-            },
-            {
-              "key": "wdth",
-              "showInPalette": -1,
-              "type": "(unit real)",
-              "value": 1377,
-              "unit": 592476268
-            },
-            {
-              "key": "hght",
-              "showInPalette": -1,
-              "type": "(unit real)",
-              "value": 997,
-              "unit": 592476268
-            },
-            {
-              "key": "cnrt",
-              "showInPalette": -1,
-              "type": "(boolean)",
-              "value": 0
-            },
-            {
-              "key": "cntX",
-              "showInPalette": -1,
-              "type": "(unit real)",
-              "value": 1050.5,
-              "unit": 592476268
-            },
-            {
-              "key": "cntY",
-              "showInPalette": -1,
-              "type": "(unit real)",
-              "value": 1861.5,
-              "unit": 592476268
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "runScript",
+      "name": "ApplyStrokeColor",
       "keyIndex": 0,
       "colorIndex": 0,
       "isOpen": 1,
@@ -218,24 +70,49 @@
       "events": [
         {
           "useRulersIn1stQuadrant": 0,
-          "internalName": "(adobe_commandManager)",
-          "localizedName": "Access Menu Item",
+          "internalName": "(ai_plugin_setColor)",
+          "localizedName": "Set color",
           "isOpen": 0,
           "isOn": 1,
           "hasDialog": 0,
-          "parameterCount": 2,
+          "parameterCount": 6,
           "parameters": [
             {
-              "key": "itnm",
+              "key": "idct",
               "showInPalette": -1,
               "type": "(ustring)",
-              "value": "_0000024D3FD3F4B0"
+              "value": "Stroke color"
             },
             {
-              "key": "lcnm",
+              "key": "fill",
               "showInPalette": -1,
-              "type": "(ustring)",
-              "value": "testScript"
+              "type": "(boolean)",
+              "value": 0
+            },
+            {
+              "key": "type",
+              "showInPalette": -1,
+              "type": "(enumerated)",
+              "name": "RGB color",
+              "value": 2
+            },
+            {
+              "key": "red.",
+              "showInPalette": -1,
+              "type": "(real)",
+              "value": 239
+            },
+            {
+              "key": "gren",
+              "showInPalette": -1,
+              "type": "(real)",
+              "value": 34
+            },
+            {
+              "key": "blue",
+              "showInPalette": -1,
+              "type": "(real)",
+              "value": 34
             }
           ]
         }
