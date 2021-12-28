@@ -180,46 +180,286 @@
         });
   })();
 
-function ActionSet(params) {
-  this.rawtext = "";
-  this.data = {};
-  try {
-    if (!JSON) {
-      var notifier =
-        console && console.log ? console.log : alert ? alert : null;
-      if (notifier) {
-        notifier("This class cannot be used in JSX without JSON support.");
-      } else return null;
-    } else {
-      // If this is a string:
-      if (/string/i.test(typeof params)) {
-        // Specifically of JSON:
-        if (ActionBoyIsJSON(params)) {
-          this.data = JSON.parse(params);
-          // Then we can leverage our JSON > AIA to handle everything
-        } else if (/^\/version/.test(params)) {
-          // Otherwise it's likely to be aia rawtext, we won't validate it immediately.
-          this.rawtext = params;
-          this.data = ActionBoyConvertAIAToJSON(params);
-        } else {
-          // console.log("Unrecognized input");
-        }
-      } else if (/object/i.test(typeof params)) {
-        // This is likely to be a File object or a JSON schema. Let's worry about Files later and assume:
-        this.data = params;
-        // console.log("Need to build out the structure here");
+/**
+ * Since we need Array-Likes to replicate Document.pageItems acting as an array with
+ * custom functions like .add(), we can begin each Array-Like as an actual array
+ * then mimick an Object.assign call so they inherit new prototype methods
+ */
+function extendPrototype(target) {
+  var arg, obj, key;
+  for (arg = 1; arg < arguments.length; ++arg) {
+    obj = arguments[arg];
+    for (key in obj) if (obj.hasOwnProperty(key)) target[key] = obj[key];
+  }
+  return target;
+}
+
+/**
+ * Any Array-Likes need to have parents explicitly set at time of creation.
+ * Since a user has these generated in their parents, it shouldn't be an issue
+ */
+function ActionParameters(arr, parent) {
+  arr = arr || [];
+  extendPrototype(arr, {
+    add: function () {
+      for (var i = 0; i < arguments.length; i++) {
+        arguments[i]["parent"] = this;
+        if (arguments[i].typename && arguments[i].typename == "ActionParameter")
+          this.push(arguments[i]);
+        else if (!arguments[i].typename)
+          this.push(new ActionParameter(arguments[i]));
       }
+      this.parent.parameterCount = this.length;
+    },
+    removeAll: function () {
+      for (var i = this.length; !!i; i--) this.pop();
+      this.parent.parameterCount = this.length;
+    },
+  });
+  arr.parent = parent;
+  arr.typename = "ActionParameters";
+  return arr;
+}
+function ActionEvents(arr, parent) {
+  arr = arr || [];
+  extendPrototype(arr, {
+    add: function () {
+      for (var i = 0; i < arguments.length; i++) {
+        arguments[i]["parent"] = this;
+        if (arguments[i].typename && arguments[i].typename == "ActionEvent")
+          this.push(arguments[i]);
+        else if (!arguments[i].typename)
+          this.push(new ActionEvent(arguments[i]));
+      }
+      this.parent.eventCount = this.length;
+    },
+    removeAll: function () {
+      for (var i = this.length; !!i; i--) this.pop();
+      this.parent.eventCount = this.length;
+    },
+  });
+  arr.parent = parent;
+  arr.typename = "ActionEvents";
+  return arr;
+}
+function Actions(arr, parent) {
+  arr = arr || [];
+  extendPrototype(arr, {
+    add: function () {
+      for (var i = 0; i < arguments.length; i++) {
+        arguments[i]["parent"] = this;
+        if (arguments[i].typename && arguments[i].typename == "Action")
+          this.push(arguments[i]);
+        else if (!arguments[i].typename) this.push(new Action(arguments[i]));
+      }
+      this.parent.actionCount = this.length;
+    },
+    removeAll: function () {
+      for (var i = this.length; !!i; i--) this.pop();
+      this.parent.actionCount = this.length;
+    },
+    getByName: function (query) {
+      for (var i = 0; i < this.length; i++)
+        if (this[i].name && this[i].name == query) return this[i];
+      return null;
+    },
+  });
+  arr.parent = parent || null;
+  arr.typename = "ActionCollection";
+  return arr;
+}
+
+function ActionParameter(obj, parent) {
+  this.typename = "ActionParameter";
+  this.parent = parent || null;
+  this.key = null;
+  this.showInPalette = -1;
+  this.type = null;
+  this.value = null;
+  for (var key in obj) this[key] = obj[key];
+}
+function ActionEvent(obj, parent) {
+  this.typename = "ActionEvent";
+  this.parent = parent || null;
+  this.useRulersIn1stQuadrant = 0;
+  this.internalName = null;
+  this.localizedName = null;
+  this.isOpen = 0;
+  this.isOn = 1;
+  this.hasDialog = 0;
+  this.parameterCount = 0;
+  this.parameters = new ActionParameters([], this);
+  for (var key in obj)
+    if (key == "parameters")
+      for (var i = 0; i < obj.parameters.length; i++)
+        this.parameters.add(obj.parameters[i]);
+    else this[key] = obj[key];
+}
+function Action(obj, parent) {
+  this.parent = parent || null;
+  this.typename = "Action";
+  this.eventCount = 0;
+  this.events = new ActionEvents([], this);
+  for (var key in obj)
+    if (key == "events")
+      for (var i = 0; i < obj.events.length; i++)
+        this.events.add(obj.events[i]);
+    else this[key] = obj[key];
+}
+Action.prototype.run = function () {
+  // This should trigger a reload of rawtext and Actions
+  // If properly parent-chained, it could call the root to regenerate AIA text and reload
+  if (this.parent && this.parent.parent) {
+    app.doScript(this.name, this.parent.parent.name, false);
+  } else {
+    alert(
+      "Action is not properly mounted to a parent chain of Self > Collection > Set"
+    );
+  }
+};
+
+function ActionSet(params) {
+  this.typename = "ActionSet";
+  this.name = "";
+  this.version = 3;
+  this.isOpen = 0;
+  this.actionCount = 0;
+  this.actions = new Actions([], this);
+  this.rawtext = null;
+  var data;
+  try {
+    // If this is a string:
+    if (/string/i.test(typeof params)) {
+      // Specifically of JSON:
+      if (ActionBoyIsJSON(params)) {
+        data = JSON.parse(params);
+        // Then we can leverage our JSON > AIA to handle everything
+      } else if (/^\/version/.test(params)) {
+        // Otherwise it's likely to be aia rawtext, we won't validate it immediately.
+        data = ActionBoyConvertAIAToJSON(params);
+      } else {
+        // This is an unrecognized format
+      }
+    } else if (/object/i.test(typeof params)) {
+      if (params.typename && /file/i.test(params.typename)) {
+        // Should load AIA text through a file
+        params.encoding = "UTF8";
+        params.open("r");
+        var content = params.read();
+        params.close();
+        data = ActionBoyConvertAIAToJSON(content);
+      } else {
+        // This is likely to be a File object or a JSON schema. Let's worry about Files later and assume:
+        data = params;
+      }
+    }
+    if (data) {
+      for (var root in data) this[root] = data[root];
     }
   } catch (err) {
     alert("Construct Error: " + err);
   }
 }
-
 ActionSet.prototype = {
+  load: function () {
+    alert("Not yet supported");
+  },
+  unload: function () {
+    try {
+      var temp = app.unloadAction(this.name, "");
+      return /undefined/i.test(temp + "");
+    } catch (err) {
+      return false;
+    }
+  },
   toJSON: function () {
-    return ActionBoyConvertAIAToJSON(this.rawtext);
+    if (this.rawtext) return ActionBoyConvertAIAToJSON(this.rawtext);
+  },
+  toJSONString: function () {
+    if (this.rawtext)
+      return JSON.stringify(ActionBoyConvertAIAToJSON(this.rawtext));
+  },
+  toAIA: function () {
+    function chunkSubstr(str, size) {
+      var numChunks = Math.ceil(str.length / size);
+      var chunks = new Array(numChunks);
+      for (var i = 0, o = 0; i < numChunks; ++i, o += size)
+        chunks[i] = str.substr(o, size);
+      return chunks;
+    }
+    var temp = this.getJSONSchema();
+    // var rawtext =
+    //   ActionBoyFilter(unfoldPerDepth(temp).split("\r\n"), function (i) {
+    //     return i.length;
+    //   }).join("\r\n") + "\r\n";
+  },
+  getJSONSchema: function () {
+    function recurseInto(obj) {
+      var shouldOmit = new RegExp(
+          "^(" +
+            [
+              "toJSON",
+              "load",
+              "unload",
+              "toJSONString",
+              "getJSONSchema",
+              "filter",
+              "map",
+              "forEach",
+              "add",
+              "removeAll",
+              "getByName",
+              "typename",
+              "rawtext",
+              "parent",
+            ].join("|") +
+            ")$"
+        ),
+        key,
+        temp = {},
+        keylist = [];
+      for (key in obj) if (!shouldOmit.test(key)) keylist.push(key);
+      keylist = sortByPriority(keylist, obj.typename);
+      for (var kk = 0; kk < keylist.length; kk++)
+        temp[keylist[kk]] = obj[keylist[kk]];
+      return temp;
+    }
+    function sortByPriority(keys, typename) {
+      function indexOf(list, entry) {
+        var i = 0;
+        for (i = 0; i < list.length; i++) if (list[i] == entry) return i;
+        return -1;
+      }
+      var lookup = {
+        ActionSet: ["version", "name", "isOpen", "actionCount", "actions"],
+        Action: [
+          "name",
+          "keyIndex",
+          "colorIndex",
+          "isOpen",
+          "eventCount",
+          "events",
+        ],
+        ActionEvent: [
+          "useRulersIn1stQuadrant",
+          "internalName",
+          "localizedName",
+          "isOpen",
+          "isOn",
+          "hasDialog",
+          "parameterCount",
+          "parameters",
+        ],
+        ActionParameter: ["key", "showInPalette", "type", "value"],
+      };
+      return keys.sort(function (a, b) {
+        return indexOf(lookup[typename], a) - indexOf(lookup[typename], b);
+      });
+    }
+    return recurseInto(this);
   },
 };
+
 // This is fine though sanitize/translate could probably be merged into a single function
 function ActionBoyConvertAIAToJSON(rawtext) {
   try {
@@ -273,6 +513,24 @@ function ActionBoyConvertAIAToJSON(rawtext) {
     return ActionBoyTranslateSchema(sanitizedSchema);
   } catch (err) {
     alert("Convert Error: " + err);
+  }
+}
+
+// Wow, why didn't I do this before? That's way better than the Node approach
+function ActionBoyRecurseForSchema(item, data) {
+  try {
+    var temp = item;
+    temp["children"] = ActionBoyMap(
+      ActionBoyFilter(data, function (child) {
+        return child.parent == item.index;
+      }),
+      function (child) {
+        return ActionBoyRecurseForSchema(child, data);
+      }
+    );
+    return temp;
+  } catch (err) {
+    alert("Recurse Schema Error: " + err);
   }
 }
 
@@ -342,7 +600,8 @@ function ActionBoySanitizeSchema(data) {
         raw: rootPropGroup.raw,
         index: rootPropGroup.index,
       };
-      // Diagnose and handle any propGroup which may need recursion:
+      // Diagnose and handle any propGroup which may need recursion, we want
+      // to collapse lines like "/name [ 8 120fda9011290 ]" from 4 lines to 1
       if (rootPropGroup["children"] && rootPropGroup["children"].length) {
         var isDeep = ActionBoyFilter(rootPropGroup["children"], function (i) {
           return i.children && i.children.length;
@@ -382,17 +641,12 @@ function ActionBoySanitizeSchema(data) {
                       .replace(/^[\s]*/, "")
                   ),
                 };
-                // This here is sloppy
-                subClone.value = new RegExp("^" + subClone.name).test(
-                  subClone.value
-                )
-                  ? ActionBoyTrim(
-                      subClone.value.replace(
-                        new RegExp("^" + subClone.name),
-                        ""
-                      )
-                    )
-                  : subClone.value;
+                // Starting to see keys assigned within values on JSX,
+                // something went wrong switching RegExp from string literals
+                if (new RegExp(subClone.name).test(subClone.value))
+                  subClone.value = ActionBoyTrim(
+                    subClone.value.replace(subClone.name, "")
+                  );
                 if (subClone.value + "" == "null")
                   subClone.value = ActionBoyTrim(
                     ActionBoyTrim(subProp).replace(/^\/[^\s]/, "")
@@ -421,11 +675,9 @@ function ActionBoySanitizeSchema(data) {
           rootClone["name"] = /\/([^\s]*)/.exec(rootClone.value)[1];
         else rootClone["name"] = "undefined-B";
         rootClone.value = ActionBoyTrim(
-          rootClone.value.replace("\\/" + rootClone.name, "")
+          rootClone.value.replace("/" + rootClone.name, "")
         );
-
         if (/^\d{10}$/.test(rootClone.value)) rootClone["type"] = "decimal";
-
         temp.push(rootClone);
       } else {
         // This is almost certainly a closing bracket, empty newline, or format artifact with no real value.
@@ -437,26 +689,6 @@ function ActionBoySanitizeSchema(data) {
     alert("Sanitize Schema Error: " + err);
   }
 }
-
-// Wow, why didn't I do this before? That's way better than the Node approach
-function ActionBoyRecurseForSchema(item, data) {
-  try {
-    var temp = item;
-    temp["children"] = ActionBoyMap(
-      ActionBoyFilter(data, function (child) {
-        return child.parent == item.index;
-      }),
-      function (child) {
-        return ActionBoyRecurseForSchema(child, data);
-      }
-    );
-    return temp;
-  } catch (err) {
-    alert("Recurse Schema Error: " + err);
-  }
-}
-
-// I don't want to clutter the namespace with common func names to avoid any overlap with a user's codebase
 function ActionBoyIsJSON(str) {
   try {
     JSON.parse(str);
@@ -465,10 +697,11 @@ function ActionBoyIsJSON(str) {
     return false;
   }
 }
-/**
- * If I'm not mistaken, the only code I use in actionToJSON that would need polyfilling are
- * Array methods: map, filter, isArray, flat, forEach; then JSON, String.padStart and String.trim?
- */
+function ActionBoyPadStart(count, char) {
+  var str = "";
+  for (var i = 0; i < 0; i++) str += char;
+  return str;
+}
 function ActionBoyTrim(str) {
   return str.replace(/^\s*|\s*$/gm, "");
 }
@@ -480,6 +713,11 @@ function ActionBoyMap(array, callback) {
   for (var i = 0; i < array.length; i++)
     mappedParam.push(callback(array[i], i, array));
   return mappedParam;
+}
+function ActionBoyObjectKeys(obj) {
+  var list = [];
+  for (var key in obj) list.push(key);
+  return list;
 }
 function ActionBoyFilter(array, callback, debug) {
   debug = debug || false;
@@ -511,22 +749,18 @@ function ActionBoyAsciiToDecimal(input) {
   return parseInt(ActionBoyAsciiToHex(input), 16);
 }
 function ActionBoyDecimalToAscii(input) {
-  return ActionBoyHexToAscii(Number((input + "").trim()).toString(16));
+  return ActionBoyHexToAscii(Number(ActionBoyTrim(input + "")).toString(16));
 }
+// ---------------------------------------- //
 
-function test() {
-  var sampleSet = new ActionSet(
-    "/version 3\r\n/name [ 7\r\n\t74656d70536574\r\n]\r\n/isOpen 1\r\n/actionCount 1\r\n/action-1 {\r\n\t/name [ 10\r\n\t\t74656d70416374696f6e\r\n\t]\r\n\t/keyIndex 0\r\n\t/colorIndex 0\r\n\t/isOpen 0\r\n\t/eventCount 1\r\n\t/event-1 {\r\n\t\t/useRulersIn1stQuadrant 0\r\n\t\t/internalName (ai_plugin_setColor)\r\n\t\t/localizedName [ 9\r\n\t\t\t53657420636f6c6f72\r\n\t\t]\r\n\t\t/isOpen 1\r\n\t\t/isOn 1\r\n\t\t/hasDialog 0\r\n\t\t/parameterCount 6\r\n\t\t/parameter-1 {\r\n\t\t\t/key 1768186740\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (ustring)\r\n\t\t\t/value [ $TYPEHEXLENGTH$\r\n\t\t\t\t$TYPEHEX$\r\n\t\t\t]\r\n\t\t}\r\n\t\t/parameter-2 {\r\n\t\t\t/key 1718185068\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (boolean)\r\n\t\t\t/value $ISFILL$\r\n\t\t}\r\n\t\t/parameter-3 {\r\n\t\t\t/key 1954115685\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (enumerated)\r\n\t\t\t/name [ 9\r\n\t\t\t\t52474220636f6c6f72\r\n\t\t\t]\r\n\t\t\t/value 2\r\n\t\t}\r\n\t\t/parameter-4 {\r\n\t\t\t/key 1919247406\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (real)\r\n\t\t\t/value $RVALUE$\r\n\t\t}\r\n\t\t/parameter-5 {\r\n\t\t\t/key 1735550318\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (real)\r\n\t\t\t/value $GVALUE$\r\n\t\t}\r\n\t\t/parameter-6 {\r\n\t\t\t/key 1651275109\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (real)\r\n\t\t\t/value $BVALUE$\r\n\t\t}\r\n\t}\r\n}"
-  );
-  // makeFile(
-  //   path.resolve("./JSX/output.json"),
-  //   JSON.stringify(sampleSet.data, null, 2)
-  // );
-  // console.log("Done");
-  var tmp = File(Folder.desktop + "/output.json");
-  tmp.open("w");
-  tmp.write(JSON.stringify(sampleSet.data));
-  tmp.close();
-  alert("Done?");
-}
-test();
+var sampleSet = new ActionSet(
+  "/version 3\r\n/name [ 9\r\n\t73616d706c65536574\r\n]\r\n/isOpen 1\r\n/actionCount 2\r\n/action-1 {\r\n\t/name [ 14\r\n\t\t4170706c7946696c6c436f6c6f72\r\n\t]\r\n\t/keyIndex 8\r\n\t/colorIndex 5\r\n\t/isOpen 0\r\n\t/eventCount 1\r\n\t/event-1 {\r\n\t\t/useRulersIn1stQuadrant 0\r\n\t\t/internalName (ai_plugin_setColor)\r\n\t\t/localizedName [ 9\r\n\t\t\t53657420636f6c6f72\r\n\t\t]\r\n\t\t/isOpen 1\r\n\t\t/isOn 1\r\n\t\t/hasDialog 0\r\n\t\t/parameterCount 6\r\n\t\t/parameter-1 {\r\n\t\t\t/key 1768186740\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (ustring)\r\n\t\t\t/value [ 10\r\n\t\t\t\t46696c6c20636f6c6f72\r\n\t\t\t]\r\n\t\t}\r\n\t\t/parameter-2 {\r\n\t\t\t/key 1718185068\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (boolean)\r\n\t\t\t/value 1\r\n\t\t}\r\n\t\t/parameter-3 {\r\n\t\t\t/key 1954115685\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (enumerated)\r\n\t\t\t/name [ 9\r\n\t\t\t\t52474220636f6c6f72\r\n\t\t\t]\r\n\t\t\t/value 2\r\n\t\t}\r\n\t\t/parameter-4 {\r\n\t\t\t/key 1919247406\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (real)\r\n\t\t\t/value 234.0\r\n\t\t}\r\n\t\t/parameter-5 {\r\n\t\t\t/key 1735550318\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (real)\r\n\t\t\t/value 10.0\r\n\t\t}\r\n\t\t/parameter-6 {\r\n\t\t\t/key 1651275109\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (real)\r\n\t\t\t/value 10.0\r\n\t\t}\r\n\t}\r\n}\r\n/action-2 {\r\n\t/name [ 16\r\n\t\t4170706c795374726f6b65436f6c6f72\r\n\t]\r\n\t/keyIndex 0\r\n\t/colorIndex 0\r\n\t/isOpen 1\r\n\t/eventCount 1\r\n\t/event-1 {\r\n\t\t/useRulersIn1stQuadrant 0\r\n\t\t/internalName (ai_plugin_setColor)\r\n\t\t/localizedName [ 9\r\n\t\t\t53657420636f6c6f72\r\n\t\t]\r\n\t\t/isOpen 0\r\n\t\t/isOn 1\r\n\t\t/hasDialog 0\r\n\t\t/parameterCount 6\r\n\t\t/parameter-1 {\r\n\t\t\t/key 1768186740\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (ustring)\r\n\t\t\t/value [ 12\r\n\t\t\t\t5374726f6b6520636f6c6f72\r\n\t\t\t]\r\n\t\t}\r\n\t\t/parameter-2 {\r\n\t\t\t/key 1718185068\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (boolean)\r\n\t\t\t/value 0\r\n\t\t}\r\n\t\t/parameter-3 {\r\n\t\t\t/key 1954115685\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (enumerated)\r\n\t\t\t/name [ 9\r\n\t\t\t\t52474220636f6c6f72\r\n\t\t\t]\r\n\t\t\t/value 2\r\n\t\t}\r\n\t\t/parameter-4 {\r\n\t\t\t/key 1919247406\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (real)\r\n\t\t\t/value 239.0\r\n\t\t}\r\n\t\t/parameter-5 {\r\n\t\t\t/key 1735550318\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (real)\r\n\t\t\t/value 34.0\r\n\t\t}\r\n\t\t/parameter-6 {\r\n\t\t\t/key 1651275109\r\n\t\t\t/showInPalette -1\r\n\t\t\t/type (real)\r\n\t\t\t/value 34.0\r\n\t\t}\r\n\t}\r\n}"
+);
+
+var contents = sampleSet.getJSONSchema();
+var tmp = File(Folder.desktop + "/output.json");
+tmp.open("w");
+tmp.write(JSON.stringify(contents));
+tmp.close();
+
+alert("Done");

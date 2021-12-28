@@ -4,7 +4,7 @@
   "description": "What Actions native to Illustrator scripting could look like",
   "main": "index.js",
   "scripts": {
-    "test": "node ./JSX/ActionSet.js",
+    "test": "node ./JSX/jsonToAction",
     "parse": "node ./parsing",
     "print": "node ./parsing/print.js"
   },
