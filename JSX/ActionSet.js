@@ -44,7 +44,59 @@ class ActionSet {
 }
 
 function ActionBoyConvertAIAToJSON(rawtext) {
-  return { hello: "world" };
+  var lines = ActionBoyFilter(rawtext.split(/(\r\n|\r|\n)/g), function (entry) {
+    return entry.replace(/(\r\n|\r|\n)/g, "").length;
+  });
+  var data = ActionBoyMap(lines, function (v, i, a) {
+    var child = {
+      raw: v,
+      index: i,
+      depth: /\t/.test(v) ? v.match(/\t/gm).length : 0,
+      parent: -1,
+      hasBrackets: /[\]\}]/.test(v),
+    };
+    if (child.depth || child.hasBrackets) {
+      for (var cc = i; !!cc; cc--) {
+        var lastDepth = /\t/.test(a[cc]) ? a[cc].match(/\t/gm).length : 0;
+        if (child.hasBrackets) {
+          var squareMatch = /\]/.test(v) && /\[/.test(a[cc]);
+          var curlyMatch = /\}/.test(v) && /\{/.test(a[cc]);
+          if (child.depth !== lastDepth) continue;
+          else if (curlyMatch || squareMatch) {
+            child.parent = cc;
+            break;
+          } else continue;
+        } else if (!child.hasBrackets && child.depth > lastDepth) {
+          child.parent = cc;
+          break;
+        } else continue;
+      }
+    }
+    return child;
+  });
+
+  var chain = [];
+  var rootProps = ActionBoyFilter(data, function (v) {
+    return v.parent < 0;
+  });
+  for (var cc = 0; cc < rootProps.length; cc++)
+    chain.push(ActionBoyRecurseForSchema(rootProps[cc], data));
+
+  return data;
+}
+
+// Wow, why didn't I do this before? That's way better than the Node approach
+function ActionBoyRecurseForSchema(item, data) {
+  var temp = item;
+  temp["children"] = ActionBoyMap(
+    ActionBoyFilter(data, function (child) {
+      return child.parent == item.index;
+    }),
+    function (child) {
+      return ActionBoyRecurseForSchema(child, data);
+    }
+  );
+  return temp;
 }
 
 // I don't want to clutter the namespace with common func names to avoid any overlap with a user's codebase
@@ -69,10 +121,14 @@ function ActionBoyMap(array, callback) {
     mappedParam.push(callback(array[i], i, array));
   return mappedParam;
 }
-function ActionBoyFilter(array, callback) {
+function ActionBoyFilter(array, callback, debug) {
+  debug = debug || false;
   var filtered = [];
   for (var i = 0; i < array.length; i++)
-    if (callback(array[i], i, array)) filtered.push(array[i]);
+    if (callback(array[i], i, array)) {
+      if (debug) console.log("Found match?");
+      filtered.push(array[i]);
+    }
   return filtered;
 }
 function ActionBoyForEach(array, callback) {

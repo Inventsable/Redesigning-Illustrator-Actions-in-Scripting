@@ -1,3 +1,3575 @@
-{
-  "hello": "world"
-}
+[
+  {
+    "raw": "/version 3",
+    "index": 0,
+    "depth": 0,
+    "parent": -1,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "/name [ 9",
+    "index": 1,
+    "depth": 0,
+    "parent": -1,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t73616d706c65536574",
+        "index": 2,
+        "depth": 1,
+        "parent": 1,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "]",
+        "index": 3,
+        "depth": 0,
+        "parent": 1,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t73616d706c65536574",
+    "index": 2,
+    "depth": 1,
+    "parent": 1,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "]",
+    "index": 3,
+    "depth": 0,
+    "parent": 1,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "/isOpen 1",
+    "index": 4,
+    "depth": 0,
+    "parent": -1,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "/actionCount 2",
+    "index": 5,
+    "depth": 0,
+    "parent": -1,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "/action-1 {",
+    "index": 6,
+    "depth": 0,
+    "parent": -1,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t/name [ 14",
+        "index": 7,
+        "depth": 1,
+        "parent": 6,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t4170706c7946696c6c436f6c6f72",
+            "index": 8,
+            "depth": 2,
+            "parent": 7,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t]",
+            "index": 9,
+            "depth": 1,
+            "parent": 7,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t/keyIndex 8",
+        "index": 10,
+        "depth": 1,
+        "parent": 6,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t/colorIndex 5",
+        "index": 11,
+        "depth": 1,
+        "parent": 6,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t/isOpen 0",
+        "index": 12,
+        "depth": 1,
+        "parent": 6,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t/eventCount 1",
+        "index": 13,
+        "depth": 1,
+        "parent": 6,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t/event-1 {",
+        "index": 14,
+        "depth": 1,
+        "parent": 6,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t/useRulersIn1stQuadrant 0",
+            "index": 15,
+            "depth": 2,
+            "parent": 14,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t/internalName (ai_plugin_setColor)",
+            "index": 16,
+            "depth": 2,
+            "parent": 14,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t/localizedName [ 9",
+            "index": 17,
+            "depth": 2,
+            "parent": 14,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t53657420636f6c6f72",
+                "index": 18,
+                "depth": 3,
+                "parent": 17,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t]",
+                "index": 19,
+                "depth": 2,
+                "parent": 17,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t\t/isOpen 1",
+            "index": 20,
+            "depth": 2,
+            "parent": 14,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t/isOn 1",
+            "index": 21,
+            "depth": 2,
+            "parent": 14,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t/hasDialog 0",
+            "index": 22,
+            "depth": 2,
+            "parent": 14,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t/parameterCount 6",
+            "index": 23,
+            "depth": 2,
+            "parent": 14,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t/parameter-1 {",
+            "index": 24,
+            "depth": 2,
+            "parent": 14,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t/key 1768186740",
+                "index": 25,
+                "depth": 3,
+                "parent": 24,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/showInPalette -1",
+                "index": 26,
+                "depth": 3,
+                "parent": 24,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/type (ustring)",
+                "index": 27,
+                "depth": 3,
+                "parent": 24,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/value [ 10",
+                "index": 28,
+                "depth": 3,
+                "parent": 24,
+                "hasBrackets": false,
+                "children": [
+                  {
+                    "raw": "\t\t\t\t46696c6c20636f6c6f72",
+                    "index": 29,
+                    "depth": 4,
+                    "parent": 28,
+                    "hasBrackets": false,
+                    "children": []
+                  },
+                  {
+                    "raw": "\t\t\t]",
+                    "index": 30,
+                    "depth": 3,
+                    "parent": 28,
+                    "hasBrackets": true,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "raw": "\t\t}",
+                "index": 31,
+                "depth": 2,
+                "parent": 24,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t\t/parameter-2 {",
+            "index": 32,
+            "depth": 2,
+            "parent": 14,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t/key 1718185068",
+                "index": 33,
+                "depth": 3,
+                "parent": 32,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/showInPalette -1",
+                "index": 34,
+                "depth": 3,
+                "parent": 32,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/type (boolean)",
+                "index": 35,
+                "depth": 3,
+                "parent": 32,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/value 1",
+                "index": 36,
+                "depth": 3,
+                "parent": 32,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t}",
+                "index": 37,
+                "depth": 2,
+                "parent": 32,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t\t/parameter-3 {",
+            "index": 38,
+            "depth": 2,
+            "parent": 14,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t/key 1954115685",
+                "index": 39,
+                "depth": 3,
+                "parent": 38,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/showInPalette -1",
+                "index": 40,
+                "depth": 3,
+                "parent": 38,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/type (enumerated)",
+                "index": 41,
+                "depth": 3,
+                "parent": 38,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/name [ 9",
+                "index": 42,
+                "depth": 3,
+                "parent": 38,
+                "hasBrackets": false,
+                "children": [
+                  {
+                    "raw": "\t\t\t\t52474220636f6c6f72",
+                    "index": 43,
+                    "depth": 4,
+                    "parent": 42,
+                    "hasBrackets": false,
+                    "children": []
+                  },
+                  {
+                    "raw": "\t\t\t]",
+                    "index": 44,
+                    "depth": 3,
+                    "parent": 42,
+                    "hasBrackets": true,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "raw": "\t\t\t/value 2",
+                "index": 45,
+                "depth": 3,
+                "parent": 38,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t}",
+                "index": 46,
+                "depth": 2,
+                "parent": 38,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t\t/parameter-4 {",
+            "index": 47,
+            "depth": 2,
+            "parent": 14,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t/key 1919247406",
+                "index": 48,
+                "depth": 3,
+                "parent": 47,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/showInPalette -1",
+                "index": 49,
+                "depth": 3,
+                "parent": 47,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/type (real)",
+                "index": 50,
+                "depth": 3,
+                "parent": 47,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/value 234.0",
+                "index": 51,
+                "depth": 3,
+                "parent": 47,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t}",
+                "index": 52,
+                "depth": 2,
+                "parent": 47,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t\t/parameter-5 {",
+            "index": 53,
+            "depth": 2,
+            "parent": 14,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t/key 1735550318",
+                "index": 54,
+                "depth": 3,
+                "parent": 53,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/showInPalette -1",
+                "index": 55,
+                "depth": 3,
+                "parent": 53,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/type (real)",
+                "index": 56,
+                "depth": 3,
+                "parent": 53,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/value 10.0",
+                "index": 57,
+                "depth": 3,
+                "parent": 53,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t}",
+                "index": 58,
+                "depth": 2,
+                "parent": 53,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t\t/parameter-6 {",
+            "index": 59,
+            "depth": 2,
+            "parent": 14,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t/key 1651275109",
+                "index": 60,
+                "depth": 3,
+                "parent": 59,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/showInPalette -1",
+                "index": 61,
+                "depth": 3,
+                "parent": 59,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/type (real)",
+                "index": 62,
+                "depth": 3,
+                "parent": 59,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/value 10.0",
+                "index": 63,
+                "depth": 3,
+                "parent": 59,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t}",
+                "index": 64,
+                "depth": 2,
+                "parent": 59,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t}",
+            "index": 65,
+            "depth": 1,
+            "parent": 14,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "}",
+        "index": 66,
+        "depth": 0,
+        "parent": 6,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t/name [ 14",
+    "index": 7,
+    "depth": 1,
+    "parent": 6,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t4170706c7946696c6c436f6c6f72",
+        "index": 8,
+        "depth": 2,
+        "parent": 7,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t]",
+        "index": 9,
+        "depth": 1,
+        "parent": 7,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t4170706c7946696c6c436f6c6f72",
+    "index": 8,
+    "depth": 2,
+    "parent": 7,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t]",
+    "index": 9,
+    "depth": 1,
+    "parent": 7,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t/keyIndex 8",
+    "index": 10,
+    "depth": 1,
+    "parent": 6,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t/colorIndex 5",
+    "index": 11,
+    "depth": 1,
+    "parent": 6,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t/isOpen 0",
+    "index": 12,
+    "depth": 1,
+    "parent": 6,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t/eventCount 1",
+    "index": 13,
+    "depth": 1,
+    "parent": 6,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t/event-1 {",
+    "index": 14,
+    "depth": 1,
+    "parent": 6,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t/useRulersIn1stQuadrant 0",
+        "index": 15,
+        "depth": 2,
+        "parent": 14,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t/internalName (ai_plugin_setColor)",
+        "index": 16,
+        "depth": 2,
+        "parent": 14,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t/localizedName [ 9",
+        "index": 17,
+        "depth": 2,
+        "parent": 14,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t53657420636f6c6f72",
+            "index": 18,
+            "depth": 3,
+            "parent": 17,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t]",
+            "index": 19,
+            "depth": 2,
+            "parent": 17,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t\t/isOpen 1",
+        "index": 20,
+        "depth": 2,
+        "parent": 14,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t/isOn 1",
+        "index": 21,
+        "depth": 2,
+        "parent": 14,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t/hasDialog 0",
+        "index": 22,
+        "depth": 2,
+        "parent": 14,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t/parameterCount 6",
+        "index": 23,
+        "depth": 2,
+        "parent": 14,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t/parameter-1 {",
+        "index": 24,
+        "depth": 2,
+        "parent": 14,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t/key 1768186740",
+            "index": 25,
+            "depth": 3,
+            "parent": 24,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/showInPalette -1",
+            "index": 26,
+            "depth": 3,
+            "parent": 24,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/type (ustring)",
+            "index": 27,
+            "depth": 3,
+            "parent": 24,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/value [ 10",
+            "index": 28,
+            "depth": 3,
+            "parent": 24,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t\t46696c6c20636f6c6f72",
+                "index": 29,
+                "depth": 4,
+                "parent": 28,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t]",
+                "index": 30,
+                "depth": 3,
+                "parent": 28,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t\t}",
+            "index": 31,
+            "depth": 2,
+            "parent": 24,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t\t/parameter-2 {",
+        "index": 32,
+        "depth": 2,
+        "parent": 14,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t/key 1718185068",
+            "index": 33,
+            "depth": 3,
+            "parent": 32,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/showInPalette -1",
+            "index": 34,
+            "depth": 3,
+            "parent": 32,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/type (boolean)",
+            "index": 35,
+            "depth": 3,
+            "parent": 32,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/value 1",
+            "index": 36,
+            "depth": 3,
+            "parent": 32,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t}",
+            "index": 37,
+            "depth": 2,
+            "parent": 32,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t\t/parameter-3 {",
+        "index": 38,
+        "depth": 2,
+        "parent": 14,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t/key 1954115685",
+            "index": 39,
+            "depth": 3,
+            "parent": 38,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/showInPalette -1",
+            "index": 40,
+            "depth": 3,
+            "parent": 38,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/type (enumerated)",
+            "index": 41,
+            "depth": 3,
+            "parent": 38,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/name [ 9",
+            "index": 42,
+            "depth": 3,
+            "parent": 38,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t\t52474220636f6c6f72",
+                "index": 43,
+                "depth": 4,
+                "parent": 42,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t]",
+                "index": 44,
+                "depth": 3,
+                "parent": 42,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t\t\t/value 2",
+            "index": 45,
+            "depth": 3,
+            "parent": 38,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t}",
+            "index": 46,
+            "depth": 2,
+            "parent": 38,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t\t/parameter-4 {",
+        "index": 47,
+        "depth": 2,
+        "parent": 14,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t/key 1919247406",
+            "index": 48,
+            "depth": 3,
+            "parent": 47,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/showInPalette -1",
+            "index": 49,
+            "depth": 3,
+            "parent": 47,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/type (real)",
+            "index": 50,
+            "depth": 3,
+            "parent": 47,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/value 234.0",
+            "index": 51,
+            "depth": 3,
+            "parent": 47,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t}",
+            "index": 52,
+            "depth": 2,
+            "parent": 47,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t\t/parameter-5 {",
+        "index": 53,
+        "depth": 2,
+        "parent": 14,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t/key 1735550318",
+            "index": 54,
+            "depth": 3,
+            "parent": 53,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/showInPalette -1",
+            "index": 55,
+            "depth": 3,
+            "parent": 53,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/type (real)",
+            "index": 56,
+            "depth": 3,
+            "parent": 53,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/value 10.0",
+            "index": 57,
+            "depth": 3,
+            "parent": 53,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t}",
+            "index": 58,
+            "depth": 2,
+            "parent": 53,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t\t/parameter-6 {",
+        "index": 59,
+        "depth": 2,
+        "parent": 14,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t/key 1651275109",
+            "index": 60,
+            "depth": 3,
+            "parent": 59,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/showInPalette -1",
+            "index": 61,
+            "depth": 3,
+            "parent": 59,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/type (real)",
+            "index": 62,
+            "depth": 3,
+            "parent": 59,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/value 10.0",
+            "index": 63,
+            "depth": 3,
+            "parent": 59,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t}",
+            "index": 64,
+            "depth": 2,
+            "parent": 59,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t}",
+        "index": 65,
+        "depth": 1,
+        "parent": 14,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t/useRulersIn1stQuadrant 0",
+    "index": 15,
+    "depth": 2,
+    "parent": 14,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t/internalName (ai_plugin_setColor)",
+    "index": 16,
+    "depth": 2,
+    "parent": 14,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t/localizedName [ 9",
+    "index": 17,
+    "depth": 2,
+    "parent": 14,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t53657420636f6c6f72",
+        "index": 18,
+        "depth": 3,
+        "parent": 17,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t]",
+        "index": 19,
+        "depth": 2,
+        "parent": 17,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t53657420636f6c6f72",
+    "index": 18,
+    "depth": 3,
+    "parent": 17,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t]",
+    "index": 19,
+    "depth": 2,
+    "parent": 17,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t\t/isOpen 1",
+    "index": 20,
+    "depth": 2,
+    "parent": 14,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t/isOn 1",
+    "index": 21,
+    "depth": 2,
+    "parent": 14,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t/hasDialog 0",
+    "index": 22,
+    "depth": 2,
+    "parent": 14,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t/parameterCount 6",
+    "index": 23,
+    "depth": 2,
+    "parent": 14,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t/parameter-1 {",
+    "index": 24,
+    "depth": 2,
+    "parent": 14,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t/key 1768186740",
+        "index": 25,
+        "depth": 3,
+        "parent": 24,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/showInPalette -1",
+        "index": 26,
+        "depth": 3,
+        "parent": 24,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/type (ustring)",
+        "index": 27,
+        "depth": 3,
+        "parent": 24,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/value [ 10",
+        "index": 28,
+        "depth": 3,
+        "parent": 24,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t\t46696c6c20636f6c6f72",
+            "index": 29,
+            "depth": 4,
+            "parent": 28,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t]",
+            "index": 30,
+            "depth": 3,
+            "parent": 28,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t\t}",
+        "index": 31,
+        "depth": 2,
+        "parent": 24,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t/key 1768186740",
+    "index": 25,
+    "depth": 3,
+    "parent": 24,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/showInPalette -1",
+    "index": 26,
+    "depth": 3,
+    "parent": 24,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/type (ustring)",
+    "index": 27,
+    "depth": 3,
+    "parent": 24,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/value [ 10",
+    "index": 28,
+    "depth": 3,
+    "parent": 24,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t\t46696c6c20636f6c6f72",
+        "index": 29,
+        "depth": 4,
+        "parent": 28,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t]",
+        "index": 30,
+        "depth": 3,
+        "parent": 28,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t\t46696c6c20636f6c6f72",
+    "index": 29,
+    "depth": 4,
+    "parent": 28,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t]",
+    "index": 30,
+    "depth": 3,
+    "parent": 28,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t\t}",
+    "index": 31,
+    "depth": 2,
+    "parent": 24,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t\t/parameter-2 {",
+    "index": 32,
+    "depth": 2,
+    "parent": 14,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t/key 1718185068",
+        "index": 33,
+        "depth": 3,
+        "parent": 32,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/showInPalette -1",
+        "index": 34,
+        "depth": 3,
+        "parent": 32,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/type (boolean)",
+        "index": 35,
+        "depth": 3,
+        "parent": 32,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/value 1",
+        "index": 36,
+        "depth": 3,
+        "parent": 32,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t}",
+        "index": 37,
+        "depth": 2,
+        "parent": 32,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t/key 1718185068",
+    "index": 33,
+    "depth": 3,
+    "parent": 32,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/showInPalette -1",
+    "index": 34,
+    "depth": 3,
+    "parent": 32,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/type (boolean)",
+    "index": 35,
+    "depth": 3,
+    "parent": 32,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/value 1",
+    "index": 36,
+    "depth": 3,
+    "parent": 32,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t}",
+    "index": 37,
+    "depth": 2,
+    "parent": 32,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t\t/parameter-3 {",
+    "index": 38,
+    "depth": 2,
+    "parent": 14,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t/key 1954115685",
+        "index": 39,
+        "depth": 3,
+        "parent": 38,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/showInPalette -1",
+        "index": 40,
+        "depth": 3,
+        "parent": 38,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/type (enumerated)",
+        "index": 41,
+        "depth": 3,
+        "parent": 38,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/name [ 9",
+        "index": 42,
+        "depth": 3,
+        "parent": 38,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t\t52474220636f6c6f72",
+            "index": 43,
+            "depth": 4,
+            "parent": 42,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t]",
+            "index": 44,
+            "depth": 3,
+            "parent": 42,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t\t\t/value 2",
+        "index": 45,
+        "depth": 3,
+        "parent": 38,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t}",
+        "index": 46,
+        "depth": 2,
+        "parent": 38,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t/key 1954115685",
+    "index": 39,
+    "depth": 3,
+    "parent": 38,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/showInPalette -1",
+    "index": 40,
+    "depth": 3,
+    "parent": 38,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/type (enumerated)",
+    "index": 41,
+    "depth": 3,
+    "parent": 38,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/name [ 9",
+    "index": 42,
+    "depth": 3,
+    "parent": 38,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t\t52474220636f6c6f72",
+        "index": 43,
+        "depth": 4,
+        "parent": 42,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t]",
+        "index": 44,
+        "depth": 3,
+        "parent": 42,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t\t52474220636f6c6f72",
+    "index": 43,
+    "depth": 4,
+    "parent": 42,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t]",
+    "index": 44,
+    "depth": 3,
+    "parent": 42,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/value 2",
+    "index": 45,
+    "depth": 3,
+    "parent": 38,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t}",
+    "index": 46,
+    "depth": 2,
+    "parent": 38,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t\t/parameter-4 {",
+    "index": 47,
+    "depth": 2,
+    "parent": 14,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t/key 1919247406",
+        "index": 48,
+        "depth": 3,
+        "parent": 47,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/showInPalette -1",
+        "index": 49,
+        "depth": 3,
+        "parent": 47,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/type (real)",
+        "index": 50,
+        "depth": 3,
+        "parent": 47,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/value 234.0",
+        "index": 51,
+        "depth": 3,
+        "parent": 47,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t}",
+        "index": 52,
+        "depth": 2,
+        "parent": 47,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t/key 1919247406",
+    "index": 48,
+    "depth": 3,
+    "parent": 47,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/showInPalette -1",
+    "index": 49,
+    "depth": 3,
+    "parent": 47,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/type (real)",
+    "index": 50,
+    "depth": 3,
+    "parent": 47,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/value 234.0",
+    "index": 51,
+    "depth": 3,
+    "parent": 47,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t}",
+    "index": 52,
+    "depth": 2,
+    "parent": 47,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t\t/parameter-5 {",
+    "index": 53,
+    "depth": 2,
+    "parent": 14,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t/key 1735550318",
+        "index": 54,
+        "depth": 3,
+        "parent": 53,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/showInPalette -1",
+        "index": 55,
+        "depth": 3,
+        "parent": 53,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/type (real)",
+        "index": 56,
+        "depth": 3,
+        "parent": 53,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/value 10.0",
+        "index": 57,
+        "depth": 3,
+        "parent": 53,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t}",
+        "index": 58,
+        "depth": 2,
+        "parent": 53,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t/key 1735550318",
+    "index": 54,
+    "depth": 3,
+    "parent": 53,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/showInPalette -1",
+    "index": 55,
+    "depth": 3,
+    "parent": 53,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/type (real)",
+    "index": 56,
+    "depth": 3,
+    "parent": 53,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/value 10.0",
+    "index": 57,
+    "depth": 3,
+    "parent": 53,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t}",
+    "index": 58,
+    "depth": 2,
+    "parent": 53,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t\t/parameter-6 {",
+    "index": 59,
+    "depth": 2,
+    "parent": 14,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t/key 1651275109",
+        "index": 60,
+        "depth": 3,
+        "parent": 59,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/showInPalette -1",
+        "index": 61,
+        "depth": 3,
+        "parent": 59,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/type (real)",
+        "index": 62,
+        "depth": 3,
+        "parent": 59,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/value 10.0",
+        "index": 63,
+        "depth": 3,
+        "parent": 59,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t}",
+        "index": 64,
+        "depth": 2,
+        "parent": 59,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t/key 1651275109",
+    "index": 60,
+    "depth": 3,
+    "parent": 59,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/showInPalette -1",
+    "index": 61,
+    "depth": 3,
+    "parent": 59,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/type (real)",
+    "index": 62,
+    "depth": 3,
+    "parent": 59,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/value 10.0",
+    "index": 63,
+    "depth": 3,
+    "parent": 59,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t}",
+    "index": 64,
+    "depth": 2,
+    "parent": 59,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t}",
+    "index": 65,
+    "depth": 1,
+    "parent": 14,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "}",
+    "index": 66,
+    "depth": 0,
+    "parent": 6,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "/action-2 {",
+    "index": 67,
+    "depth": 0,
+    "parent": -1,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t/name [ 16",
+        "index": 68,
+        "depth": 1,
+        "parent": 67,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t4170706c795374726f6b65436f6c6f72",
+            "index": 69,
+            "depth": 2,
+            "parent": 68,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t]",
+            "index": 70,
+            "depth": 1,
+            "parent": 68,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t/keyIndex 0",
+        "index": 71,
+        "depth": 1,
+        "parent": 67,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t/colorIndex 0",
+        "index": 72,
+        "depth": 1,
+        "parent": 67,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t/isOpen 1",
+        "index": 73,
+        "depth": 1,
+        "parent": 67,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t/eventCount 1",
+        "index": 74,
+        "depth": 1,
+        "parent": 67,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t/event-1 {",
+        "index": 75,
+        "depth": 1,
+        "parent": 67,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t/useRulersIn1stQuadrant 0",
+            "index": 76,
+            "depth": 2,
+            "parent": 75,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t/internalName (ai_plugin_setColor)",
+            "index": 77,
+            "depth": 2,
+            "parent": 75,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t/localizedName [ 9",
+            "index": 78,
+            "depth": 2,
+            "parent": 75,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t53657420636f6c6f72",
+                "index": 79,
+                "depth": 3,
+                "parent": 78,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t]",
+                "index": 80,
+                "depth": 2,
+                "parent": 78,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t\t/isOpen 0",
+            "index": 81,
+            "depth": 2,
+            "parent": 75,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t/isOn 1",
+            "index": 82,
+            "depth": 2,
+            "parent": 75,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t/hasDialog 0",
+            "index": 83,
+            "depth": 2,
+            "parent": 75,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t/parameterCount 6",
+            "index": 84,
+            "depth": 2,
+            "parent": 75,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t/parameter-1 {",
+            "index": 85,
+            "depth": 2,
+            "parent": 75,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t/key 1768186740",
+                "index": 86,
+                "depth": 3,
+                "parent": 85,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/showInPalette -1",
+                "index": 87,
+                "depth": 3,
+                "parent": 85,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/type (ustring)",
+                "index": 88,
+                "depth": 3,
+                "parent": 85,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/value [ 12",
+                "index": 89,
+                "depth": 3,
+                "parent": 85,
+                "hasBrackets": false,
+                "children": [
+                  {
+                    "raw": "\t\t\t\t5374726f6b6520636f6c6f72",
+                    "index": 90,
+                    "depth": 4,
+                    "parent": 89,
+                    "hasBrackets": false,
+                    "children": []
+                  },
+                  {
+                    "raw": "\t\t\t]",
+                    "index": 91,
+                    "depth": 3,
+                    "parent": 89,
+                    "hasBrackets": true,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "raw": "\t\t}",
+                "index": 92,
+                "depth": 2,
+                "parent": 85,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t\t/parameter-2 {",
+            "index": 93,
+            "depth": 2,
+            "parent": 75,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t/key 1718185068",
+                "index": 94,
+                "depth": 3,
+                "parent": 93,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/showInPalette -1",
+                "index": 95,
+                "depth": 3,
+                "parent": 93,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/type (boolean)",
+                "index": 96,
+                "depth": 3,
+                "parent": 93,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/value 0",
+                "index": 97,
+                "depth": 3,
+                "parent": 93,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t}",
+                "index": 98,
+                "depth": 2,
+                "parent": 93,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t\t/parameter-3 {",
+            "index": 99,
+            "depth": 2,
+            "parent": 75,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t/key 1954115685",
+                "index": 100,
+                "depth": 3,
+                "parent": 99,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/showInPalette -1",
+                "index": 101,
+                "depth": 3,
+                "parent": 99,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/type (enumerated)",
+                "index": 102,
+                "depth": 3,
+                "parent": 99,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/name [ 9",
+                "index": 103,
+                "depth": 3,
+                "parent": 99,
+                "hasBrackets": false,
+                "children": [
+                  {
+                    "raw": "\t\t\t\t52474220636f6c6f72",
+                    "index": 104,
+                    "depth": 4,
+                    "parent": 103,
+                    "hasBrackets": false,
+                    "children": []
+                  },
+                  {
+                    "raw": "\t\t\t]",
+                    "index": 105,
+                    "depth": 3,
+                    "parent": 103,
+                    "hasBrackets": true,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "raw": "\t\t\t/value 2",
+                "index": 106,
+                "depth": 3,
+                "parent": 99,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t}",
+                "index": 107,
+                "depth": 2,
+                "parent": 99,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t\t/parameter-4 {",
+            "index": 108,
+            "depth": 2,
+            "parent": 75,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t/key 1919247406",
+                "index": 109,
+                "depth": 3,
+                "parent": 108,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/showInPalette -1",
+                "index": 110,
+                "depth": 3,
+                "parent": 108,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/type (real)",
+                "index": 111,
+                "depth": 3,
+                "parent": 108,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/value 239.0",
+                "index": 112,
+                "depth": 3,
+                "parent": 108,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t}",
+                "index": 113,
+                "depth": 2,
+                "parent": 108,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t\t/parameter-5 {",
+            "index": 114,
+            "depth": 2,
+            "parent": 75,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t/key 1735550318",
+                "index": 115,
+                "depth": 3,
+                "parent": 114,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/showInPalette -1",
+                "index": 116,
+                "depth": 3,
+                "parent": 114,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/type (real)",
+                "index": 117,
+                "depth": 3,
+                "parent": 114,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/value 34.0",
+                "index": 118,
+                "depth": 3,
+                "parent": 114,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t}",
+                "index": 119,
+                "depth": 2,
+                "parent": 114,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t\t/parameter-6 {",
+            "index": 120,
+            "depth": 2,
+            "parent": 75,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t/key 1651275109",
+                "index": 121,
+                "depth": 3,
+                "parent": 120,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/showInPalette -1",
+                "index": 122,
+                "depth": 3,
+                "parent": 120,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/type (real)",
+                "index": 123,
+                "depth": 3,
+                "parent": 120,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t/value 34.0",
+                "index": 124,
+                "depth": 3,
+                "parent": 120,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t}",
+                "index": 125,
+                "depth": 2,
+                "parent": 120,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t}",
+            "index": 126,
+            "depth": 1,
+            "parent": 75,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "}",
+        "index": 127,
+        "depth": 0,
+        "parent": 67,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t/name [ 16",
+    "index": 68,
+    "depth": 1,
+    "parent": 67,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t4170706c795374726f6b65436f6c6f72",
+        "index": 69,
+        "depth": 2,
+        "parent": 68,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t]",
+        "index": 70,
+        "depth": 1,
+        "parent": 68,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t4170706c795374726f6b65436f6c6f72",
+    "index": 69,
+    "depth": 2,
+    "parent": 68,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t]",
+    "index": 70,
+    "depth": 1,
+    "parent": 68,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t/keyIndex 0",
+    "index": 71,
+    "depth": 1,
+    "parent": 67,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t/colorIndex 0",
+    "index": 72,
+    "depth": 1,
+    "parent": 67,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t/isOpen 1",
+    "index": 73,
+    "depth": 1,
+    "parent": 67,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t/eventCount 1",
+    "index": 74,
+    "depth": 1,
+    "parent": 67,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t/event-1 {",
+    "index": 75,
+    "depth": 1,
+    "parent": 67,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t/useRulersIn1stQuadrant 0",
+        "index": 76,
+        "depth": 2,
+        "parent": 75,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t/internalName (ai_plugin_setColor)",
+        "index": 77,
+        "depth": 2,
+        "parent": 75,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t/localizedName [ 9",
+        "index": 78,
+        "depth": 2,
+        "parent": 75,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t53657420636f6c6f72",
+            "index": 79,
+            "depth": 3,
+            "parent": 78,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t]",
+            "index": 80,
+            "depth": 2,
+            "parent": 78,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t\t/isOpen 0",
+        "index": 81,
+        "depth": 2,
+        "parent": 75,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t/isOn 1",
+        "index": 82,
+        "depth": 2,
+        "parent": 75,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t/hasDialog 0",
+        "index": 83,
+        "depth": 2,
+        "parent": 75,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t/parameterCount 6",
+        "index": 84,
+        "depth": 2,
+        "parent": 75,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t/parameter-1 {",
+        "index": 85,
+        "depth": 2,
+        "parent": 75,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t/key 1768186740",
+            "index": 86,
+            "depth": 3,
+            "parent": 85,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/showInPalette -1",
+            "index": 87,
+            "depth": 3,
+            "parent": 85,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/type (ustring)",
+            "index": 88,
+            "depth": 3,
+            "parent": 85,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/value [ 12",
+            "index": 89,
+            "depth": 3,
+            "parent": 85,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t\t5374726f6b6520636f6c6f72",
+                "index": 90,
+                "depth": 4,
+                "parent": 89,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t]",
+                "index": 91,
+                "depth": 3,
+                "parent": 89,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t\t}",
+            "index": 92,
+            "depth": 2,
+            "parent": 85,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t\t/parameter-2 {",
+        "index": 93,
+        "depth": 2,
+        "parent": 75,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t/key 1718185068",
+            "index": 94,
+            "depth": 3,
+            "parent": 93,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/showInPalette -1",
+            "index": 95,
+            "depth": 3,
+            "parent": 93,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/type (boolean)",
+            "index": 96,
+            "depth": 3,
+            "parent": 93,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/value 0",
+            "index": 97,
+            "depth": 3,
+            "parent": 93,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t}",
+            "index": 98,
+            "depth": 2,
+            "parent": 93,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t\t/parameter-3 {",
+        "index": 99,
+        "depth": 2,
+        "parent": 75,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t/key 1954115685",
+            "index": 100,
+            "depth": 3,
+            "parent": 99,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/showInPalette -1",
+            "index": 101,
+            "depth": 3,
+            "parent": 99,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/type (enumerated)",
+            "index": 102,
+            "depth": 3,
+            "parent": 99,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/name [ 9",
+            "index": 103,
+            "depth": 3,
+            "parent": 99,
+            "hasBrackets": false,
+            "children": [
+              {
+                "raw": "\t\t\t\t52474220636f6c6f72",
+                "index": 104,
+                "depth": 4,
+                "parent": 103,
+                "hasBrackets": false,
+                "children": []
+              },
+              {
+                "raw": "\t\t\t]",
+                "index": 105,
+                "depth": 3,
+                "parent": 103,
+                "hasBrackets": true,
+                "children": []
+              }
+            ]
+          },
+          {
+            "raw": "\t\t\t/value 2",
+            "index": 106,
+            "depth": 3,
+            "parent": 99,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t}",
+            "index": 107,
+            "depth": 2,
+            "parent": 99,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t\t/parameter-4 {",
+        "index": 108,
+        "depth": 2,
+        "parent": 75,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t/key 1919247406",
+            "index": 109,
+            "depth": 3,
+            "parent": 108,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/showInPalette -1",
+            "index": 110,
+            "depth": 3,
+            "parent": 108,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/type (real)",
+            "index": 111,
+            "depth": 3,
+            "parent": 108,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/value 239.0",
+            "index": 112,
+            "depth": 3,
+            "parent": 108,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t}",
+            "index": 113,
+            "depth": 2,
+            "parent": 108,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t\t/parameter-5 {",
+        "index": 114,
+        "depth": 2,
+        "parent": 75,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t/key 1735550318",
+            "index": 115,
+            "depth": 3,
+            "parent": 114,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/showInPalette -1",
+            "index": 116,
+            "depth": 3,
+            "parent": 114,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/type (real)",
+            "index": 117,
+            "depth": 3,
+            "parent": 114,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/value 34.0",
+            "index": 118,
+            "depth": 3,
+            "parent": 114,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t}",
+            "index": 119,
+            "depth": 2,
+            "parent": 114,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t\t/parameter-6 {",
+        "index": 120,
+        "depth": 2,
+        "parent": 75,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t/key 1651275109",
+            "index": 121,
+            "depth": 3,
+            "parent": 120,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/showInPalette -1",
+            "index": 122,
+            "depth": 3,
+            "parent": 120,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/type (real)",
+            "index": 123,
+            "depth": 3,
+            "parent": 120,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t/value 34.0",
+            "index": 124,
+            "depth": 3,
+            "parent": 120,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t}",
+            "index": 125,
+            "depth": 2,
+            "parent": 120,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t}",
+        "index": 126,
+        "depth": 1,
+        "parent": 75,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t/useRulersIn1stQuadrant 0",
+    "index": 76,
+    "depth": 2,
+    "parent": 75,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t/internalName (ai_plugin_setColor)",
+    "index": 77,
+    "depth": 2,
+    "parent": 75,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t/localizedName [ 9",
+    "index": 78,
+    "depth": 2,
+    "parent": 75,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t53657420636f6c6f72",
+        "index": 79,
+        "depth": 3,
+        "parent": 78,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t]",
+        "index": 80,
+        "depth": 2,
+        "parent": 78,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t53657420636f6c6f72",
+    "index": 79,
+    "depth": 3,
+    "parent": 78,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t]",
+    "index": 80,
+    "depth": 2,
+    "parent": 78,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t\t/isOpen 0",
+    "index": 81,
+    "depth": 2,
+    "parent": 75,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t/isOn 1",
+    "index": 82,
+    "depth": 2,
+    "parent": 75,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t/hasDialog 0",
+    "index": 83,
+    "depth": 2,
+    "parent": 75,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t/parameterCount 6",
+    "index": 84,
+    "depth": 2,
+    "parent": 75,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t/parameter-1 {",
+    "index": 85,
+    "depth": 2,
+    "parent": 75,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t/key 1768186740",
+        "index": 86,
+        "depth": 3,
+        "parent": 85,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/showInPalette -1",
+        "index": 87,
+        "depth": 3,
+        "parent": 85,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/type (ustring)",
+        "index": 88,
+        "depth": 3,
+        "parent": 85,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/value [ 12",
+        "index": 89,
+        "depth": 3,
+        "parent": 85,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t\t5374726f6b6520636f6c6f72",
+            "index": 90,
+            "depth": 4,
+            "parent": 89,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t]",
+            "index": 91,
+            "depth": 3,
+            "parent": 89,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t\t}",
+        "index": 92,
+        "depth": 2,
+        "parent": 85,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t/key 1768186740",
+    "index": 86,
+    "depth": 3,
+    "parent": 85,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/showInPalette -1",
+    "index": 87,
+    "depth": 3,
+    "parent": 85,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/type (ustring)",
+    "index": 88,
+    "depth": 3,
+    "parent": 85,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/value [ 12",
+    "index": 89,
+    "depth": 3,
+    "parent": 85,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t\t5374726f6b6520636f6c6f72",
+        "index": 90,
+        "depth": 4,
+        "parent": 89,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t]",
+        "index": 91,
+        "depth": 3,
+        "parent": 89,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t\t5374726f6b6520636f6c6f72",
+    "index": 90,
+    "depth": 4,
+    "parent": 89,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t]",
+    "index": 91,
+    "depth": 3,
+    "parent": 89,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t\t}",
+    "index": 92,
+    "depth": 2,
+    "parent": 85,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t\t/parameter-2 {",
+    "index": 93,
+    "depth": 2,
+    "parent": 75,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t/key 1718185068",
+        "index": 94,
+        "depth": 3,
+        "parent": 93,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/showInPalette -1",
+        "index": 95,
+        "depth": 3,
+        "parent": 93,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/type (boolean)",
+        "index": 96,
+        "depth": 3,
+        "parent": 93,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/value 0",
+        "index": 97,
+        "depth": 3,
+        "parent": 93,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t}",
+        "index": 98,
+        "depth": 2,
+        "parent": 93,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t/key 1718185068",
+    "index": 94,
+    "depth": 3,
+    "parent": 93,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/showInPalette -1",
+    "index": 95,
+    "depth": 3,
+    "parent": 93,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/type (boolean)",
+    "index": 96,
+    "depth": 3,
+    "parent": 93,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/value 0",
+    "index": 97,
+    "depth": 3,
+    "parent": 93,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t}",
+    "index": 98,
+    "depth": 2,
+    "parent": 93,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t\t/parameter-3 {",
+    "index": 99,
+    "depth": 2,
+    "parent": 75,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t/key 1954115685",
+        "index": 100,
+        "depth": 3,
+        "parent": 99,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/showInPalette -1",
+        "index": 101,
+        "depth": 3,
+        "parent": 99,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/type (enumerated)",
+        "index": 102,
+        "depth": 3,
+        "parent": 99,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/name [ 9",
+        "index": 103,
+        "depth": 3,
+        "parent": 99,
+        "hasBrackets": false,
+        "children": [
+          {
+            "raw": "\t\t\t\t52474220636f6c6f72",
+            "index": 104,
+            "depth": 4,
+            "parent": 103,
+            "hasBrackets": false,
+            "children": []
+          },
+          {
+            "raw": "\t\t\t]",
+            "index": 105,
+            "depth": 3,
+            "parent": 103,
+            "hasBrackets": true,
+            "children": []
+          }
+        ]
+      },
+      {
+        "raw": "\t\t\t/value 2",
+        "index": 106,
+        "depth": 3,
+        "parent": 99,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t}",
+        "index": 107,
+        "depth": 2,
+        "parent": 99,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t/key 1954115685",
+    "index": 100,
+    "depth": 3,
+    "parent": 99,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/showInPalette -1",
+    "index": 101,
+    "depth": 3,
+    "parent": 99,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/type (enumerated)",
+    "index": 102,
+    "depth": 3,
+    "parent": 99,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/name [ 9",
+    "index": 103,
+    "depth": 3,
+    "parent": 99,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t\t52474220636f6c6f72",
+        "index": 104,
+        "depth": 4,
+        "parent": 103,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t]",
+        "index": 105,
+        "depth": 3,
+        "parent": 103,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t\t52474220636f6c6f72",
+    "index": 104,
+    "depth": 4,
+    "parent": 103,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t]",
+    "index": 105,
+    "depth": 3,
+    "parent": 103,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/value 2",
+    "index": 106,
+    "depth": 3,
+    "parent": 99,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t}",
+    "index": 107,
+    "depth": 2,
+    "parent": 99,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t\t/parameter-4 {",
+    "index": 108,
+    "depth": 2,
+    "parent": 75,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t/key 1919247406",
+        "index": 109,
+        "depth": 3,
+        "parent": 108,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/showInPalette -1",
+        "index": 110,
+        "depth": 3,
+        "parent": 108,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/type (real)",
+        "index": 111,
+        "depth": 3,
+        "parent": 108,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/value 239.0",
+        "index": 112,
+        "depth": 3,
+        "parent": 108,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t}",
+        "index": 113,
+        "depth": 2,
+        "parent": 108,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t/key 1919247406",
+    "index": 109,
+    "depth": 3,
+    "parent": 108,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/showInPalette -1",
+    "index": 110,
+    "depth": 3,
+    "parent": 108,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/type (real)",
+    "index": 111,
+    "depth": 3,
+    "parent": 108,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/value 239.0",
+    "index": 112,
+    "depth": 3,
+    "parent": 108,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t}",
+    "index": 113,
+    "depth": 2,
+    "parent": 108,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t\t/parameter-5 {",
+    "index": 114,
+    "depth": 2,
+    "parent": 75,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t/key 1735550318",
+        "index": 115,
+        "depth": 3,
+        "parent": 114,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/showInPalette -1",
+        "index": 116,
+        "depth": 3,
+        "parent": 114,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/type (real)",
+        "index": 117,
+        "depth": 3,
+        "parent": 114,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/value 34.0",
+        "index": 118,
+        "depth": 3,
+        "parent": 114,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t}",
+        "index": 119,
+        "depth": 2,
+        "parent": 114,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t/key 1735550318",
+    "index": 115,
+    "depth": 3,
+    "parent": 114,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/showInPalette -1",
+    "index": 116,
+    "depth": 3,
+    "parent": 114,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/type (real)",
+    "index": 117,
+    "depth": 3,
+    "parent": 114,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/value 34.0",
+    "index": 118,
+    "depth": 3,
+    "parent": 114,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t}",
+    "index": 119,
+    "depth": 2,
+    "parent": 114,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t\t/parameter-6 {",
+    "index": 120,
+    "depth": 2,
+    "parent": 75,
+    "hasBrackets": false,
+    "children": [
+      {
+        "raw": "\t\t\t/key 1651275109",
+        "index": 121,
+        "depth": 3,
+        "parent": 120,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/showInPalette -1",
+        "index": 122,
+        "depth": 3,
+        "parent": 120,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/type (real)",
+        "index": 123,
+        "depth": 3,
+        "parent": 120,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t\t/value 34.0",
+        "index": 124,
+        "depth": 3,
+        "parent": 120,
+        "hasBrackets": false,
+        "children": []
+      },
+      {
+        "raw": "\t\t}",
+        "index": 125,
+        "depth": 2,
+        "parent": 120,
+        "hasBrackets": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "raw": "\t\t\t/key 1651275109",
+    "index": 121,
+    "depth": 3,
+    "parent": 120,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/showInPalette -1",
+    "index": 122,
+    "depth": 3,
+    "parent": 120,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/type (real)",
+    "index": 123,
+    "depth": 3,
+    "parent": 120,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t\t/value 34.0",
+    "index": 124,
+    "depth": 3,
+    "parent": 120,
+    "hasBrackets": false,
+    "children": []
+  },
+  {
+    "raw": "\t\t}",
+    "index": 125,
+    "depth": 2,
+    "parent": 120,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "\t}",
+    "index": 126,
+    "depth": 1,
+    "parent": 75,
+    "hasBrackets": true,
+    "children": []
+  },
+  {
+    "raw": "}",
+    "index": 127,
+    "depth": 0,
+    "parent": 67,
+    "hasBrackets": true,
+    "children": []
+  }
+]
