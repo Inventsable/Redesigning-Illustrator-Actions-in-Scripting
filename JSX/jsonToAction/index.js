@@ -28,117 +28,143 @@ function makeFile(targetPath, data, options = null) {
 
 function convertToAIA(obj) {
   function chunkSubstr(str, size) {
-    const numChunks = Math.ceil(str.length / size);
-    const chunks = new Array(numChunks);
+    var numChunks = Math.ceil(str.length / size);
+    var chunks = new Array(numChunks);
     for (let i = 0, o = 0; i < numChunks; ++i, o += size)
       chunks[i] = str.substr(o, size);
     return chunks;
   }
-
   // If we write one good enough function to print lines in AIA format,
   // we can recurse inside any enumerables like actions/events/parameters:
   function unfoldPerDepth(obj, str = "", depth = 0, parent = null) {
     // The recursion depth is the same as our leading \t characters:
-    let padding = "".padStart(depth, "\t");
+    var padding = "";
+    for (var p = 0; p < depth; p++) padding += "\t";
+
+    var keylist = [];
+    for (var key in obj) keylist.push(key);
 
     // Iterate over the properties of this object as if it were an Array:
-    Object.keys(obj).forEach((key, mainIndex) => {
+    ActionBoyForEach(keylist, function (key, mainIndex) {
+      DEBUG_STR += key + ": ";
       // We need to handle any edge cases, so we create a diagnostic for them:
-      let conditions = hasConditionalFormatting(key, obj[key], depth, obj);
-      //
+      var conditions = hasConditionalFormatting(key, obj[key], depth, obj);
+
       // If nothing came back we know the formatting is very simple:
-      if (conditions.isNone) str += `${padding}/${key} ${obj[key]}`;
-      else if (conditions.isReal) str += `${padding}/${key} ${obj[key]}.0`;
+      if (conditions.isNone) str += padding + "/" + key + " " + obj[key];
+      else if (conditions.isReal)
+        str += padding + "/" + key + " " + obj[key] + ".0";
       else if (conditions.isHex) {
         // Otherwise we have to handle formatting per condition
-        let hex = ActionBoyAsciiToHex(obj[key]);
-        let byteLength = hex.length;
+        var hex = ActionBoyAsciiToHex(obj[key]);
+        var byteLength = hex.length;
         // AIA seems to only display 64 chars in sequence
         if (byteLength > 64)
-          hex = chunkSubstr(hex, 64)
-            .map((i, nn) => `${nn ? `${padding}\t` : ""}${i}`)
-            .join("\r\n");
-        str += `${padding}/${key} [ ${
-          byteLength / 2
-        }\r\n${padding}\t${hex}\r\n${padding}]`;
+          hex = ActionBoyMap(chunkSubstr(hex, 64), function (i, nn) {
+            return (nn ? padding + "\t" : "") + i;
+          }).join("\r\n");
+        str +=
+          padding +
+          "/" +
+          key +
+          " [ " +
+          byteLength / 2 +
+          "\r\n" +
+          padding +
+          "\t" +
+          hex +
+          "\r\n" +
+          padding +
+          "]";
       } else if (conditions.isDec) {
         // Decimal conversion is straightforward, just need to encode the values:
-        str += `${padding}/${key} ${ActionBoyAsciiToDecimal(obj[key])}`;
+        str += padding + "/" + key + " " + ActionBoyAsciiToDecimal(obj[key]);
       } else if (conditions.isEnum) {
         // Enums are where we recurse and loop into children with this same function
-        let enumKey = key.replace(/s$/, "");
+        var enumKey = key.replace(/s$/, "");
         // Doublecheck we know what data we're dealing with:
-        if (Array.isArray(obj[key]))
-          obj[key].forEach((value, index) => {
+        if (ActionBoyIsArray(obj[key]))
+          ActionBoyForEach(obj[key], function (value, index) {
             // Then for each enum, print out an AIA style block:
-            str += `${padding}/${enumKey}-${index + 1} {\r\n`;
+            str += padding + "/" + enumKey + "-" + (index + 1) + " {\r\n";
             // Recurse into the child to print it normally
             str = unfoldPerDepth(value, str, depth + 1, obj);
             // Then close the block
-            str += `${padding}}\r\n`;
+            str += padding + "}\r\n";
           });
       }
       // Just to ensure that props are being printed on separate lines:
       str += "\r\n";
+      DEBUG_STR += "\r\n";
     });
     return str;
   }
-
   /**
-   * Is this extremely clever or extremely naive? I can't tell. I've never created validation engines before,
-   * this is probably similar to how custom input elements run dynamic validation rules?
-   *
-   * The idea is that I have an unspecified and possibly dynamic number of edge cases. If I can feed all the data
-   * into an array containing functions that specifically check for some particular edge case, I can filter that.
-   *
-   * If I can guarantee each particular edge case from some particular function, I know what formatting is needed.
+   * Not bad for converting from Node, though it does still seem a bit obtuse. I'm unsure if funcs
+   * are necessary at all here but I wanted to have the most versatile way of determining something,
+   * and it still seems like I'd be able to do far more with funcs (if need be) than static expressions
    */
   function hasConditionalFormatting(key, value, depth, parent) {
-    let conditions = {
-      isEnum: [["actions", "events", "parameters"].includes(key)],
-      isHex: [
-        ["name"].includes(key),
-        ["localizedName"].includes(key),
-        key == "value" &&
-          parent["type"] &&
-          ["(ustring)"].includes(parent["type"]),
+    var conditions = {
+      isEnum: [
+        function () {
+          return ActionBoyArrayIncludes(
+            ["actions", "events", "parameters"],
+            key
+          );
+        },
       ],
-      isDec: [depth > 2 && ["key"].includes(key)],
+      isHex: [
+        function () {
+          return ActionBoyArrayIncludes(["name"], key);
+        },
+        function () {
+          return ActionBoyArrayIncludes(["localizedName"], key);
+        },
+        function () {
+          return (
+            key == "value" &&
+            parent["type"] &&
+            ActionBoyArrayIncludes(["(ustring)"], parent["type"])
+          );
+        },
+      ],
+      isDec: [
+        function () {
+          return depth > 2 && ActionBoyArrayIncludes(["key"], key);
+        },
+      ],
       isReal: [
-        key == "value" &&
-          parent["type"] &&
-          /real/i.test(parent["type"]) &&
-          !/\./.test(value),
+        function () {
+          return (
+            key == "value" &&
+            parent["type"] &&
+            /real/i.test(parent["type"]) &&
+            !/\./.test(value)
+          );
+        },
       ],
     };
-    let diagnostic = Object.keys(conditions)
-      .map((k) => {
-        return [
-          ...new Set(
-            conditions[k]
-              .map((func) => {
-                return func(...arguments) ? k : false;
-              })
-              .filter((i) => i && i.length)
-          ),
-        ];
-      })
-      .flat()
-      .filter((i) => i);
+    var diagnostic = [];
+    for (var keyFunc in conditions)
+      for (var i = 0; i < conditions[keyFunc].length; i++) {
+        if (conditions[keyFunc][i](...arguments)) diagnostic.push(keyFunc);
+      }
     return {
-      isEnum: diagnostic.includes("isEnum"),
-      isHex: diagnostic.includes("isHex"),
-      isDec: diagnostic.includes("isDec"),
-      isReal: diagnostic.includes("isReal"),
+      isEnum: ActionBoyArrayIncludes(diagnostic, "isEnum"),
+      isHex: ActionBoyArrayIncludes(diagnostic, "isHex"),
+      isDec: ActionBoyArrayIncludes(diagnostic, "isDec"),
+      isReal: ActionBoyArrayIncludes(diagnostic, "isReal"),
       isNone: !diagnostic.length,
     };
-  }
-  function isJSON(str) {
-    try {
-      str = JSON.parse(str);
-      return true;
-    } catch (err) {
-      return false;
+
+    function isJSON(str) {
+      try {
+        str = JSON.parse(str);
+        return true;
+      } catch (err) {
+        return false;
+      }
     }
   }
   return (
@@ -149,10 +175,6 @@ function convertToAIA(obj) {
   );
 }
 
-function ActionBoyArrayIncludes(list, item) {
-  for (var i = 0; i < list.length; i++) if (list[i] == item) return true;
-  return false;
-}
 function ActionBoyIsJSON(str) {
   try {
     JSON.parse(str);
@@ -160,6 +182,12 @@ function ActionBoyIsJSON(str) {
   } catch (err) {
     return false;
   }
+}
+
+function ActionBoyArrayIncludes(haystack, needle) {
+  for (var i = 0; i < haystack.length; i++)
+    if (haystack[i] == needle) return true;
+  return false;
 }
 function ActionBoyPadStart(count, char) {
   var str = "";
